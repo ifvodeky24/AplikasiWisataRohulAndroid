@@ -1,4 +1,4 @@
-package com.example.aplikasirutetravel.data.source.remote
+package com.example.aplikasiwisatarohul.data.source.remote
 
 enum class StatusResponse {
     SUCCESS,

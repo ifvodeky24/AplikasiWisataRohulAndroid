@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_beranda"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/beranda" />
+        <item
+            android:id="@+id/nav_penginapan"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/penginapan" />
+        <item
+            android:id="@+id/nav_travel"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/travel" />
+        <item
+            android:id="@+id/nav_event"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/event" />
+
+        <item
+            android:id="@+id/nav_masjid"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/masjid" />
+
+        <item
+            android:id="@+id/nav_atm"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/atm" />
+
+        <item
+            android:id="@+id/nav_spbu"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/spbu" />
+
+        <item
+            android:id="@+id/nav_berita"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/berita" />
+    </group>
+</menu>

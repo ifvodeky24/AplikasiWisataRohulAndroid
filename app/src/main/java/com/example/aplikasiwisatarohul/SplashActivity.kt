@@ -9,7 +9,9 @@ import com.example.aplikasiwisatarohul.databinding.ActivitySplashBinding
 
 class SplashActivity : AppCompatActivity() {
 
-    private val SPLASH_TIME_OUT: Long = 3000
+    companion object {
+        const val SPLASH_TIME_OUT: Long = 3000
+    }
 
     private lateinit var binding: ActivitySplashBinding
 
@@ -19,7 +21,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }, SPLASH_TIME_OUT)
     }

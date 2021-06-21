@@ -1,4 +1,4 @@
-package com.example.aplikasirutetravel.data.source.remote.service
+package com.example.aplikasiwisatarohul.data.source.remote.service
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

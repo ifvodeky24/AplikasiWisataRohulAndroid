@@ -1,4 +1,4 @@
-package com.example.aplikasirutetravel.vo
+package com.example.aplikasiwisatarohul.vo
 
 enum class Status {
     SUCCESS,

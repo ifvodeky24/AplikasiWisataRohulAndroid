@@ -1,11 +1,11 @@
- package com.example.aplikasiwisatarohul.data
+package com.example.aplikasiwisatarohul.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
-import com.example.aplikasirutetravel.data.source.remote.ApiResponse
-import com.example.aplikasirutetravel.data.source.remote.StatusResponse
-import com.example.aplikasirutetravel.utils.AppExecutors
-import com.example.aplikasirutetravel.vo.Resource
+import com.example.aplikasiwisatarohul.data.source.remote.StatusResponse
+import com.example.aplikasiwisatarohul.vo.Resource
+import com.example.aplikasiwisatarohul.data.source.remote.ApiResponse
+import com.example.aplikasiwisatarohul.utils.AppExecutors
 
 abstract class NetworkOnlyResource<ResultType, RequestType>(private val mExecutors: AppExecutors) {
 

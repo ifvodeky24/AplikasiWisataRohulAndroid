@@ -1,4 +1,6 @@
-package com.example.aplikasirutetravel.data.source.remote
+package com.example.aplikasiwisatarohul.data.source.remote
+
+import com.example.aplikasiwisatarohul.data.source.remote.StatusResponse
 
 class ApiResponse<T>(val status: StatusResponse, val body: T?, val message: String?) {
     companion object {
