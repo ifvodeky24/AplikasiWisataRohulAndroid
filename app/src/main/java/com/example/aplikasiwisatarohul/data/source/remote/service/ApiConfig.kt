@@ -7,11 +7,37 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class ApiConfig {
     companion object {
-        var perusahaan_image =
-            "http://arslyn.com/rute-travel/web/files/images/perusahaan_images/"
+        var event_images =
+//            "http://arslyn.com/wisata-rohul/web/files/images/event_images/"
+            "http://192.168.0.115/wisata-rohul/web/files/images/event_images/"
 
-        var kondisi_jalan =
-            "http://arslyn.com/rute-travel/web/files/images/kondisi_jalan_images/"
+        var atm_response =
+//            "http://arslyn.com/wisata-rohul/web/files/images/atm_images/"
+            "http://192.168.0.115/wisata-rohul/web/files/images/atm_images/"
+
+        var berita_response =
+//            "http://arslyn.com/wisata-rohul/web/files/images/berita_images/"
+            "http://192.168.0.115/wisata-rohul/web/files/images/berita_images/"
+
+        var masjid_response =
+//            "http://arslyn.com/wisata-rohul/web/files/images/masjid_images/"
+            "http://192.168.0.115/wisata-rohul/web/files/images/masjid_images/"
+
+        var penginapan_response =
+//            "http://arslyn.com/wisata-rohul/web/files/images/penginapan_images/"
+            "http://192.168.0.115/wisata-rohul/web/files/images/penginapan_images/"
+
+        var spbu_response =
+//            "http://arslyn.com/wisata-rohul/web/files/images/spbu_images/"
+            "http://192.168.0.115/wisata-rohul/web/files/images/spbu_images/"
+
+        var wisata_response =
+//            "http://arslyn.com/wisata-rohul/web/files/images/wisata_images/"
+            "http://192.168.0.115/wisata-rohul/web/files/images/wisata_images/"
+
+        var travel_response =
+//            "http://arslyn.com/wisata-rohul/web/files/images/travel_images/"
+            "http://192.168.0.115/wisata-rohul/web/files/images/travel_images/"
     }
 
     private var retrofit: Retrofit? = null
@@ -25,7 +51,8 @@ class ApiConfig {
                 .build()
 
             retrofit = Retrofit.Builder()
-                .baseUrl("http://arslyn.com/rute-travel/api/v1/")
+//                .baseUrl("http://arslyn.com/wisata-rohul/api/v1/")
+                .baseUrl("http://192.168.0.115/wisata-rohul/api/v1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()

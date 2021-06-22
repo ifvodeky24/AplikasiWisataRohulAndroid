@@ -13,13 +13,43 @@
 
     <fragment
         android:id="@+id/nav_penginapan"
-        android:name="com.example.aplikasiwisatarohul.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:name="com.example.aplikasiwisatarohul.ui.penginapan.PenginapanFragment"
+        android:label="Penginapan"
+        tools:layout="@layout/fragment_penginapan" />
 
     <fragment
         android:id="@+id/nav_travel"
-        android:name="com.example.aplikasiwisatarohul.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:name="com.example.aplikasiwisatarohul.ui.travel.TravelFragment"
+        android:label="Travel"
+        tools:layout="@layout/fragment_travel" />
+
+    <fragment
+        android:id="@+id/nav_event"
+        android:name="com.example.aplikasiwisatarohul.ui.event.EventFragment"
+        android:label="Event"
+        tools:layout="@layout/fragment_event" />
+
+    <fragment
+        android:id="@+id/nav_masjid"
+        android:name="com.example.aplikasiwisatarohul.ui.masjid.MasjidFragment"
+        android:label="Masjid"
+        tools:layout="@layout/fragment_masjid" />
+
+    <fragment
+        android:id="@+id/nav_atm"
+        android:name="com.example.aplikasiwisatarohul.ui.atm.AtmFragment"
+        android:label="ATM"
+        tools:layout="@layout/fragment_atm" />
+
+    <fragment
+        android:id="@+id/nav_spbu"
+        android:name="com.example.aplikasiwisatarohul.ui.spbu.SpbuFragment"
+        android:label="SPBU"
+        tools:layout="@layout/fragment_spbu" />
+
+    <fragment
+        android:id="@+id/nav_berita"
+        android:name="com.example.aplikasiwisatarohul.ui.berita.BeritaFragment"
+        android:label="Berita"
+        tools:layout="@layout/fragment_berita" />
 </navigation>

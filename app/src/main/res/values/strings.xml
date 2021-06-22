@@ -21,4 +21,14 @@
     <string name="beranda">Beranda</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="kategori_wisata">Kategori Wisata</string>
+    <string name="wisata_sejarah">Wisata Sejarah</string>
+    <string name="wisata_kuliner">Wisata Kuliner</string>
+    <string name="wisata_buatan">Wisata Buatan</string>
+    <string name="wisata_alam">Wisata Alam</string>
+    <string name="wisata_religi">Wisata Religi</string>
+    <string name="wisata_budaya">Wisata Budaya</string>
+    <string name="peta_wisata">Peta Wisata</string>
+    <string name="galeri">Galeri</string>
+    <string name="wisata_rokan_hulu">Wisata Rokan Hulu</string>
 </resources>
