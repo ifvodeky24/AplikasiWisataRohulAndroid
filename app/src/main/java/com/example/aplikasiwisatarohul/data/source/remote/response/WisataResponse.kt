@@ -19,6 +19,7 @@ data class Wisata(
     val kelurahan: String,
     val latitude: String,
     val longitude: String,
+    val informasi: String,
     val nama_wisata: String,
     val updatedAt: String
 ) : Parcelable

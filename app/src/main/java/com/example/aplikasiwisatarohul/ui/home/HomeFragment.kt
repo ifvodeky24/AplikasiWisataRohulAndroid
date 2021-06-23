@@ -1,12 +1,15 @@
 package com.example.aplikasiwisatarohul.ui.home
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.appcompat.widget.LinearLayoutCompat
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -14,12 +17,19 @@ import androidx.viewpager.widget.ViewPager
 import com.example.aplikasiwisatarohul.R
 import com.example.aplikasiwisatarohul.databinding.FragmentHomeBinding
 import com.example.aplikasiwisatarohul.ui.wisata.*
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.CameraPosition
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.*
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var homeViewModel: HomeViewModel
     private var _binding: FragmentHomeBinding? = null
@@ -29,6 +39,10 @@ class HomeFragment : Fragment() {
     private var viewPagerAdapter: BannerViewPagerAdapter? = null
     private var timer: Timer? = null
     private val binding get() = _binding
+
+    private val markerOptions = MarkerOptions()
+    private lateinit var cameraPosition: CameraPosition
+    private var mMap: GoogleMap? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,6 +54,10 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
+        val mapFragment = childFragmentManager
+            .findFragmentById(R.id.map) as SupportMapFragment
+        mapFragment.getMapAsync(this)
+
         return binding?.root!!
     }
 
@@ -47,27 +65,39 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.fbWisataSejarah?.setOnClickListener {
-            startActivity(Intent(activity, WisataSejarahActivity::class.java))
+            val intent = Intent(activity, WisataActivity::class.java)
+            intent.putExtra(WisataActivity.NAME, "sejarah")
+            startActivity(intent)
         }
 
         binding?.fbWisataKuliner?.setOnClickListener {
-            startActivity(Intent(activity, WisataKulinerActivity::class.java))
+            val intent = Intent(activity, WisataActivity::class.java)
+            intent.putExtra(WisataActivity.NAME, "kuliner")
+            startActivity(intent)
         }
 
         binding?.fbWisataBuatan?.setOnClickListener {
-            startActivity(Intent(activity, WisataBuatanActivity::class.java))
+            val intent = Intent(activity, WisataActivity::class.java)
+            intent.putExtra(WisataActivity.NAME, "buatan")
+            startActivity(intent)
         }
 
         binding?.fbWisataAlam?.setOnClickListener {
-            startActivity(Intent(activity, WisataAlamActivity::class.java))
+            val intent = Intent(activity, WisataActivity::class.java)
+            intent.putExtra(WisataActivity.NAME, "alam")
+            startActivity(intent)
         }
 
         binding?.fbWisataReligi?.setOnClickListener {
-            startActivity(Intent(activity, WisataReligiActivity::class.java))
+            val intent = Intent(activity, WisataActivity::class.java)
+            intent.putExtra(WisataActivity.NAME, "religi")
+            startActivity(intent)
         }
 
         binding?.fbWisataBudaya?.setOnClickListener {
-            startActivity(Intent(activity, WisataBudayaActivity::class.java))
+            val intent = Intent(activity, WisataActivity::class.java)
+            intent.putExtra(WisataActivity.NAME, "budaya")
+            startActivity(intent)
         }
 
         viewPagerAdapter = BannerViewPagerAdapter(requireActivity())
@@ -162,5 +192,26 @@ class HomeFragment : Fragment() {
         viewPagerAdapter = null
         dots = null
         timer = null
+    }
+
+    override fun onMapReady(googleMap: GoogleMap) {
+        mMap = googleMap
+        if (ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return
+        }
+        mMap?.isMyLocationEnabled = true
+
+        // Add a marker in Sydney and move the camera
+        val pekanbaru = LatLng(-6.200000, 106.816666)
+        cameraPosition = CameraPosition.Builder().target(pekanbaru).zoom(2f).build()
+        googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
+//        getMarker()
     }
 }
