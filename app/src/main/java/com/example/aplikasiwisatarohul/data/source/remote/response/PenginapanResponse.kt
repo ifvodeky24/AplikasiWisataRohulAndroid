@@ -17,6 +17,7 @@ data class Penginapan(
     val latitude: String,
     val longitude: String,
     val nama_penginapan: String,
-    val pemilik: String,
+    val kecamatan: String,
+    val kelurahan: String,
     val updatedAt: String
 ) : Parcelable

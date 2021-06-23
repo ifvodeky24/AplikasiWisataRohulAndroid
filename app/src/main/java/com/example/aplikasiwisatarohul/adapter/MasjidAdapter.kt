@@ -3,7 +3,9 @@ package com.example.aplikasiwisatarohul.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.aplikasiwisatarohul.data.source.remote.response.Masjid
+import com.example.aplikasiwisatarohul.data.source.remote.service.ApiConfig
 import com.example.aplikasiwisatarohul.databinding.ItemMasjidBinding
 import com.example.aplikasiwisatarohul.ui.masjid.MasjidCallback
 
@@ -37,10 +39,9 @@ class MasjidAdapter(private val callback: MasjidCallback) :
                 tvTitle.text = masjid.nama_masjid
                 tvAddress.text = masjid.alamat
 
-//                Glide.with(itemView.context)
-//                    .load(ServerConfig.GALLERY_PATH + event.gambar)
-//                    .apply(RequestOptions().placeholder(R.drawable.ic_hourglass_empty_black_24dp))
-//                    .into(ivEvent)
+                Glide.with(itemView.context)
+                    .load(ApiConfig.masjid_images + masjid.foto)
+                    .into(ivMasjid)
 
                 root.setOnClickListener {
                     callback.onItemClick(masjid)

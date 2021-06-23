@@ -3,7 +3,9 @@ package com.example.aplikasiwisatarohul.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.aplikasiwisatarohul.data.source.remote.response.Atm
+import com.example.aplikasiwisatarohul.data.source.remote.service.ApiConfig
 import com.example.aplikasiwisatarohul.databinding.ItemAtmBinding
 import com.example.aplikasiwisatarohul.ui.atm.AtmCallback
 
@@ -37,10 +39,9 @@ class AtmAdapter(private val callback: AtmCallback) :
                 tvTitle.text = atm.nama_atm
                 tvAddress.text = atm.alamat
 
-//                Glide.with(itemView.context)
-//                    .load(ServerConfig.GALLERY_PATH + event.gambar)
-//                    .apply(RequestOptions().placeholder(R.drawable.ic_hourglass_empty_black_24dp))
-//                    .into(ivEvent)
+                Glide.with(itemView.context)
+                    .load(ApiConfig.atm_images + atm.foto)
+                    .into(ivAtm)
 
                 root.setOnClickListener {
                     callback.onItemClick(atm)

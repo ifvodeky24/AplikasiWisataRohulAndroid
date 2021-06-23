@@ -39,4 +39,5 @@ ext {
     glideVersion = '4.11.0'
     timber = "4.7.1"
     junitVersion = '4.13.2'
+    dexter= "6.2.2"
 }

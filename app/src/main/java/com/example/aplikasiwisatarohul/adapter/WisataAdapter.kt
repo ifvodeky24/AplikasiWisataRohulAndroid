@@ -3,7 +3,9 @@ package com.example.aplikasiwisatarohul.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.aplikasiwisatarohul.data.source.remote.response.Wisata
+import com.example.aplikasiwisatarohul.data.source.remote.service.ApiConfig
 import com.example.aplikasiwisatarohul.databinding.ItemWisataBinding
 import com.example.aplikasiwisatarohul.ui.wisata.WisataCallback
 
@@ -38,10 +40,9 @@ class WisataAdapter(private val callback: WisataCallback) :
                 tvAddress.text = wisata.alamat
                 tvKategori.text = wisata.kategori
 
-//                Glide.with(itemView.context)
-//                    .load(ServerConfig.GALLERY_PATH + event.gambar)
-//                    .apply(RequestOptions().placeholder(R.drawable.ic_hourglass_empty_black_24dp))
-//                    .into(ivEvent)
+                Glide.with(itemView.context)
+                    .load(ApiConfig.wisata_images + wisata.foto)
+                    .into(ivWisata)
 
                 root.setOnClickListener {
                     callback.onItemClick(wisata)

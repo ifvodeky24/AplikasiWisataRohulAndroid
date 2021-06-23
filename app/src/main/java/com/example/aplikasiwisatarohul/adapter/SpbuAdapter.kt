@@ -3,7 +3,9 @@ package com.example.aplikasiwisatarohul.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.aplikasiwisatarohul.data.source.remote.response.Spbu
+import com.example.aplikasiwisatarohul.data.source.remote.service.ApiConfig
 import com.example.aplikasiwisatarohul.databinding.ItemSpbuBinding
 import com.example.aplikasiwisatarohul.ui.spbu.SpbuCallback
 
@@ -37,10 +39,9 @@ class SpbuAdapter(private val callback: SpbuCallback) :
                 tvTitle.text = spbu.nama_spbu
                 tvAddress.text = spbu.alamat
 
-//                Glide.with(itemView.context)
-//                    .load(ServerConfig.GALLERY_PATH + event.gambar)
-//                    .apply(RequestOptions().placeholder(R.drawable.ic_hourglass_empty_black_24dp))
-//                    .into(ivEvent)
+                Glide.with(itemView.context)
+                    .load(ApiConfig.spbu_images + spbu.foto)
+                    .into(ivSpbu)
 
                 root.setOnClickListener {
                     callback.onItemClick(spbu)

@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.aplikasiwisatarohul.data.source.remote.response.Event
+import com.example.aplikasiwisatarohul.data.source.remote.service.ApiConfig
 import com.example.aplikasiwisatarohul.databinding.ItemEventBinding
 import com.example.aplikasiwisatarohul.ui.event.EventCallback
 
@@ -41,10 +42,9 @@ class EventAdapter(private val callback: EventCallback) :
                 tvDate.text = event.createdAt
                 tvAddress.text = event.alamat
 
-//                Glide.with(itemView.context)
-//                    .load(ServerConfig.GALLERY_PATH + event.gambar)
-//                    .apply(RequestOptions().placeholder(R.drawable.ic_hourglass_empty_black_24dp))
-//                    .into(ivEvent)
+                Glide.with(itemView.context)
+                    .load(ApiConfig.event_images + event.foto)
+                    .into(ivEvent)
 
                 root.setOnClickListener {
                     callback.onItemClick(event)

@@ -83,5 +83,4 @@ class AtmFragment : Fragment(), AtmCallback {
         moveWithObjectIntent.putExtra(DetailAtmActivity.DATA, data)
         startActivity(moveWithObjectIntent)
     }
-
 }

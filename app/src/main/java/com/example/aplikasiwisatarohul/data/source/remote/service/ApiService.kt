@@ -59,4 +59,12 @@ interface ApiService {
     fun getBeritaById(
         @Query("id_berita") id_berita: String?,
     ): Call<BeritaResponse>
+
+    @GET("travel/get-all")
+    fun getAllTravel(
+    ): Call<TravelResponse>
+
+    @GET("penginapan/get-all")
+    fun getAllPenginapan(
+    ): Call<PenginapanResponse>
 }

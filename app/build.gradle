@@ -70,4 +70,6 @@ dependencies {
 
     //timber
     implementation "com.jakewharton.timber:timber:$timber"
+
+    implementation "com.karumi:dexter:$dexter"
 }

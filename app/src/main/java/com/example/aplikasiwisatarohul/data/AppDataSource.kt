@@ -16,7 +16,9 @@ interface AppDataSource {
 
     fun getAllSpbu(): LiveData<Resource<List<Spbu>>>
 
-//    fun getAllTravel(): LiveData<Resource<List<Travel>>>
-
     fun getAllWisata(): LiveData<Resource<List<Wisata>>>
+
+    fun getAllTravel(): LiveData<Resource<List<Travel>>>
+
+    fun getAllPenginapan(): LiveData<Resource<List<Penginapan>>>
 }

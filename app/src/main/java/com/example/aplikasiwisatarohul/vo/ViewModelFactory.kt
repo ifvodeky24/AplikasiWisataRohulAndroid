@@ -9,7 +9,9 @@ import com.example.aplikasiwisatarohul.ui.atm.AtmViewModel
 import com.example.aplikasiwisatarohul.ui.berita.BeritaViewModel
 import com.example.aplikasiwisatarohul.ui.event.EventViewModel
 import com.example.aplikasiwisatarohul.ui.masjid.MasjidViewModel
+import com.example.aplikasiwisatarohul.ui.penginapan.PenginapanViewModel
 import com.example.aplikasiwisatarohul.ui.spbu.SpbuViewModel
+import com.example.aplikasiwisatarohul.ui.travel.TravelViewModel
 import com.example.aplikasiwisatarohul.ui.wisata.WisataViewModel
 
 class ViewModelFactory private constructor(private val appRepository: AppRepository) :
@@ -45,6 +47,12 @@ class ViewModelFactory private constructor(private val appRepository: AppReposit
             }
             modelClass.isAssignableFrom(WisataViewModel::class.java) -> {
                 WisataViewModel(appRepository) as T
+            }
+            modelClass.isAssignableFrom(TravelViewModel::class.java) -> {
+                TravelViewModel(appRepository) as T
+            }
+            modelClass.isAssignableFrom(PenginapanViewModel::class.java) -> {
+                PenginapanViewModel(appRepository) as T
             }
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)
         }

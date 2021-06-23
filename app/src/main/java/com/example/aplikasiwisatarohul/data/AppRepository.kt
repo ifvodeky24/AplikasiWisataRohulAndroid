@@ -115,4 +115,30 @@ class AppRepository private constructor(
 
         }.asLiveData()
     }
+
+    override fun getAllTravel(): LiveData<Resource<List<Travel>>> {
+        return object : NetworkOnlyResource<List<Travel>, List<Travel>>(appExecutors) {
+            override fun handleCallResult(item: List<Travel>?): List<Travel>? {
+                return item
+            }
+
+            override fun createCall(): LiveData<ApiResponse<List<Travel>>> {
+                return remoteDataSource.getAllTravel()
+            }
+
+        }.asLiveData()
+    }
+
+    override fun getAllPenginapan(): LiveData<Resource<List<Penginapan>>> {
+        return object : NetworkOnlyResource<List<Penginapan>, List<Penginapan>>(appExecutors) {
+            override fun handleCallResult(item: List<Penginapan>?): List<Penginapan>? {
+                return item
+            }
+
+            override fun createCall(): LiveData<ApiResponse<List<Penginapan>>> {
+                return remoteDataSource.getAllPenginapan()
+            }
+
+        }.asLiveData()
+    }
 }

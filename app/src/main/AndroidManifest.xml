@@ -50,12 +50,7 @@
         <activity android:name=".ui.event.DetailEventActivity" />
         <activity android:name=".ui.masjid.DetailMasjidActivity" />
         <activity android:name=".ui.penginapan.DetailPenginapanActivity" />
-        <activity android:name=".ui.wisata.WisataBudayaActivity" />
-        <activity android:name=".ui.wisata.WisataReligiActivity" />
         <activity android:name=".ui.wisata.WisataActivity" />
-        <activity android:name=".ui.wisata.WisataBuatanActivity" />
-        <activity android:name=".ui.wisata.WisataKulinerActivity" />
-        <activity android:name=".ui.wisata.WisataSejarahActivity" />
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"

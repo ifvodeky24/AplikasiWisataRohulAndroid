@@ -208,4 +208,66 @@ class RemoteDataSource(private val apiConfig: ApiConfig) {
         })
         return listWisata
     }
+
+    fun getAllTravel(): LiveData<ApiResponse<List<Travel>>> {
+        val listTravel = MutableLiveData<ApiResponse<List<Travel>>>()
+
+        apiConfig.client().getAllTravel().enqueue(object : Callback<TravelResponse> {
+            override fun onResponse(
+                call: Call<TravelResponse>,
+                response: Response<TravelResponse>
+            ) {
+                if (response.code() == 200) {
+                    response.body()?.data?.let {
+                        if (it.isNotEmpty()) {
+                            Timber.d("oiii ${response.body()?.data}")
+                            listTravel.value = ApiResponse.success(it)
+                        } else if (it.isEmpty()) {
+                            listTravel.value = ApiResponse.empty(EMPTY_DATA, it)
+                        }
+                    }
+                } else {
+                    response.body()?.data?.let {
+                        listTravel.value = ApiResponse.error(ERROR_CONNECTION, it)
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<TravelResponse>, t: Throwable) {
+                listTravel.value = ApiResponse.error(ERROR_CONNECTION, null)
+            }
+        })
+        return listTravel
+    }
+
+    fun getAllPenginapan(): LiveData<ApiResponse<List<Penginapan>>> {
+        val listPenginapan = MutableLiveData<ApiResponse<List<Penginapan>>>()
+
+        apiConfig.client().getAllPenginapan().enqueue(object : Callback<PenginapanResponse> {
+            override fun onResponse(
+                call: Call<PenginapanResponse>,
+                response: Response<PenginapanResponse>
+            ) {
+                if (response.code() == 200) {
+                    response.body()?.data?.let {
+                        if (it.isNotEmpty()) {
+                            Timber.d("oiii ${response.body()?.data}")
+                            listPenginapan.value = ApiResponse.success(it)
+                        } else if (it.isEmpty()) {
+                            listPenginapan.value = ApiResponse.empty(EMPTY_DATA, it)
+                        }
+                    }
+                } else {
+                    response.body()?.data?.let {
+                        listPenginapan.value = ApiResponse.error(ERROR_CONNECTION, it)
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<PenginapanResponse>, t: Throwable) {
+                listPenginapan.value = ApiResponse.error(ERROR_CONNECTION, null)
+            }
+        })
+        return listPenginapan
+    }
 }
