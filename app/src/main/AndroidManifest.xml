@@ -3,25 +3,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.aplikasiwisatarohul">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@drawable/logo_app"
         android:label="@string/app_name"
         android:roundIcon="@drawable/logo_app"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.AplikasiWisataRohul"
+        android:usesCleartextTraffic="true"
         tools:targetApi="m">
-
-        <activity android:name=".ui.wisata.WisataBudayaActivity"/>
+        <activity android:name=".ui.atm.DetailAtmActivity"/>
+        <activity android:name=".ui.wisata.DetailWisataActivity" />
+        <activity android:name=".ui.travel.DetailTravelActivity" />
+        <activity android:name=".ui.spbu.DetailSpbuActivity" />
+        <activity android:name=".ui.berita.DetailBeritaActivity" />
+        <activity android:name=".ui.event.DetailEventActivity" />
+        <activity android:name=".ui.masjid.DetailMasjidActivity" />
+        <activity android:name=".ui.penginapan.DetailPenginapanActivity" />
+        <activity android:name=".ui.wisata.WisataBudayaActivity" />
         <activity android:name=".ui.wisata.WisataReligiActivity" />
         <activity android:name=".ui.wisata.WisataAlamActivity" />
         <activity android:name=".ui.wisata.WisataBuatanActivity" />
@@ -40,7 +48,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package com.example.aplikasiwisatarohul.ui.masjid
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,8 +13,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.aplikasiwisatarohul.R
 import com.example.aplikasiwisatarohul.adapter.EventAdapter
 import com.example.aplikasiwisatarohul.adapter.MasjidAdapter
+import com.example.aplikasiwisatarohul.data.source.remote.response.Masjid
 import com.example.aplikasiwisatarohul.databinding.FragmentEventBinding
 import com.example.aplikasiwisatarohul.databinding.FragmentMasjidBinding
+import com.example.aplikasiwisatarohul.ui.event.DetailEventActivity
 import com.example.aplikasiwisatarohul.ui.event.EventViewModel
 import com.example.aplikasiwisatarohul.utils.gone
 import com.example.aplikasiwisatarohul.vo.Status
@@ -75,7 +78,9 @@ class MasjidFragment : Fragment() , MasjidCallback{
         _binding = null
     }
 
-    override fun onItemClick(id_masjid: String) {
-
+    override fun onItemClick(data: Masjid) {
+        val moveWithObjectIntent = Intent(activity, DetailMasjidActivity::class.java)
+        moveWithObjectIntent.putExtra(DetailMasjidActivity.DATA, data)
+        startActivity(moveWithObjectIntent)
     }
 }

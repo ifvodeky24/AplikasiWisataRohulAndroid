@@ -1,5 +1,7 @@
 package com.example.aplikasiwisatarohul.ui.penginapan
 
+import com.example.aplikasiwisatarohul.data.source.remote.response.Penginapan
+
 interface PenginapanCallback {
-    fun onItemClick(id_penginapan: String)
+    fun onItemClick(data: Penginapan)
 }

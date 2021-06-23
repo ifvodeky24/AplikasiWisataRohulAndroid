@@ -1,5 +1,6 @@
 package com.example.aplikasiwisatarohul.ui.atm
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.aplikasiwisatarohul.R
 import com.example.aplikasiwisatarohul.adapter.AtmAdapter
 import com.example.aplikasiwisatarohul.adapter.MasjidAdapter
+import com.example.aplikasiwisatarohul.data.source.remote.response.Atm
 import com.example.aplikasiwisatarohul.databinding.FragmentAtmBinding
 import com.example.aplikasiwisatarohul.databinding.FragmentMasjidBinding
 import com.example.aplikasiwisatarohul.ui.masjid.MasjidViewModel
@@ -58,7 +60,8 @@ class AtmFragment : Fragment(), AtmCallback {
 
                 Status.ERROR -> {
                     binding?.progressBar?.gone()
-                    Toast.makeText(context, "Terjadi kesalahan ${atm.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Terjadi kesalahan ${atm.message}", Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
         })
@@ -75,8 +78,10 @@ class AtmFragment : Fragment(), AtmCallback {
         _binding = null
     }
 
-    override fun onItemClick(id_atm: String) {
-
+    override fun onItemClick(data: Atm) {
+        val moveWithObjectIntent = Intent(activity, DetailAtmActivity::class.java)
+        moveWithObjectIntent.putExtra(DetailAtmActivity.DATA, data)
+        startActivity(moveWithObjectIntent)
     }
 
 }

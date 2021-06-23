@@ -1,5 +1,6 @@
 package com.example.aplikasiwisatarohul.ui.event
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,8 +12,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.aplikasiwisatarohul.R
 import com.example.aplikasiwisatarohul.adapter.EventAdapter
+import com.example.aplikasiwisatarohul.data.source.remote.response.Event
 import com.example.aplikasiwisatarohul.databinding.FragmentEventBinding
 import com.example.aplikasiwisatarohul.databinding.FragmentHomeBinding
+import com.example.aplikasiwisatarohul.ui.berita.DetailBeritaActivity
 import com.example.aplikasiwisatarohul.utils.gone
 import com.example.aplikasiwisatarohul.vo.Status
 import com.example.aplikasiwisatarohul.vo.ViewModelFactory
@@ -73,8 +76,10 @@ class EventFragment : Fragment() , EventCallback{
         _binding = null
     }
 
-    override fun onItemClick(id_event: String) {
-
+    override fun onItemClick(data: Event) {
+        val moveWithObjectIntent = Intent(activity, DetailEventActivity::class.java)
+        moveWithObjectIntent.putExtra(DetailEventActivity.DATA, data)
+        startActivity(moveWithObjectIntent)
     }
 
 

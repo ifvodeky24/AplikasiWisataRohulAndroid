@@ -47,7 +47,7 @@ class EventAdapter(private val callback: EventCallback) :
 //                    .into(ivEvent)
 
                 root.setOnClickListener {
-                    callback.onItemClick(event.id_event)
+                    callback.onItemClick(event)
                 }
             }
         }

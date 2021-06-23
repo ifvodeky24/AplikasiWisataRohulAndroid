@@ -1,5 +1,7 @@
 package com.example.aplikasiwisatarohul.ui.masjid
 
+import com.example.aplikasiwisatarohul.data.source.remote.response.Masjid
+
 interface MasjidCallback {
-    fun onItemClick(id_masjid: String)
+    fun onItemClick(data: Masjid)
 }

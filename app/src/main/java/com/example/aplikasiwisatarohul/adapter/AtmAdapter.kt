@@ -43,7 +43,7 @@ class AtmAdapter(private val callback: AtmCallback) :
 //                    .into(ivEvent)
 
                 root.setOnClickListener {
-                    callback.onItemClick(atm.id_atm)
+                    callback.onItemClick(atm)
                 }
             }
         }

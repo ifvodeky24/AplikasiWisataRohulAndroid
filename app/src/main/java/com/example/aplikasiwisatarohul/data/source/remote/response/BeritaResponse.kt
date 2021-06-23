@@ -1,9 +1,13 @@
 package com.example.aplikasiwisatarohul.data.source.remote.response
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
 data class BeritaResponse(
     val data: List<Berita>
 )
 
+@Parcelize
 data class Berita(
     val createdAt: String,
     val foto: String,
@@ -12,4 +16,4 @@ data class Berita(
     val judul_berita: String,
     val nama_pengarang: String,
     val updatedAt: String
-)
+) : Parcelable

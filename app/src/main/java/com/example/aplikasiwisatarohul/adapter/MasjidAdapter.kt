@@ -43,7 +43,7 @@ class MasjidAdapter(private val callback: MasjidCallback) :
 //                    .into(ivEvent)
 
                 root.setOnClickListener {
-                    callback.onItemClick(masjid.id_masjid)
+                    callback.onItemClick(masjid)
                 }
             }
         }

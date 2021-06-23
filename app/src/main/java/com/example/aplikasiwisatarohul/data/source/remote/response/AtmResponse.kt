@@ -1,9 +1,13 @@
 package com.example.aplikasiwisatarohul.data.source.remote.response
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
 data class AtmResponse(
     val data: List<Atm>
 )
 
+@Parcelize
 data class Atm(
     val alamat: String,
     val createdAt: String,
@@ -16,4 +20,4 @@ data class Atm(
     val longitude: String,
     val nama_atm: String,
     val updatedAt: String
-)
+) : Parcelable
