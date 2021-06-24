@@ -58,6 +58,9 @@ class WisataActivity : AppCompatActivity(), WisataCallback {
                                     binding.llEmptyList.visible()
                                     binding.rvWisata.gone()
                                 }
+                            } else {
+                                binding.llEmptyList.visible()
+                                binding.rvWisata.gone()
                             }
                         }
                         "sejarah" -> {
@@ -72,6 +75,9 @@ class WisataActivity : AppCompatActivity(), WisataCallback {
                                     binding.llEmptyList.visible()
                                     binding.rvWisata.gone()
                                 }
+                            } else {
+                                binding.llEmptyList.visible()
+                                binding.rvWisata.gone()
                             }
                         }
                         "buatan" -> {
@@ -88,6 +94,9 @@ class WisataActivity : AppCompatActivity(), WisataCallback {
                                     binding.llEmptyList.visible()
                                     binding.rvWisata.gone()
                                 }
+                            } else {
+                                binding.llEmptyList.visible()
+                                binding.rvWisata.gone()
                             }
                         }
                         "alam" -> {
@@ -101,6 +110,9 @@ class WisataActivity : AppCompatActivity(), WisataCallback {
                                     binding.llEmptyList.visible()
                                     binding.rvWisata.gone()
                                 }
+                            } else {
+                                binding.llEmptyList.visible()
+                                binding.rvWisata.gone()
                             }
                         }
                         "religi" -> {
@@ -115,6 +127,9 @@ class WisataActivity : AppCompatActivity(), WisataCallback {
                                     binding.llEmptyList.visible()
                                     binding.rvWisata.gone()
                                 }
+                            } else {
+                                binding.llEmptyList.visible()
+                                binding.rvWisata.gone()
                             }
                         }
                         "budaya" -> {
@@ -129,6 +144,9 @@ class WisataActivity : AppCompatActivity(), WisataCallback {
                                     binding.llEmptyList.visible()
                                     binding.rvWisata.gone()
                                 }
+                            } else {
+                                binding.llEmptyList.visible()
+                                binding.rvWisata.gone()
                             }
                         }
                     }
