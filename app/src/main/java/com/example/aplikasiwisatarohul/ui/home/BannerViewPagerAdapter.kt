@@ -11,8 +11,8 @@ import com.example.aplikasiwisatarohul.R
 
 class BannerViewPagerAdapter(private val context: Context) : PagerAdapter() {
     private var layoutInflater: LayoutInflater? = null
-    private val images = arrayOf(R.drawable.slide_banner_1, R.drawable.slide_banner_2
-        , R.drawable.images)
+    private val images = arrayOf(R.drawable.slide_1, R.drawable.slide_2
+        , R.drawable.slide_3 , R.drawable.slide_4 ,  R.drawable.slide_5)
 
     override fun getCount(): Int {
         return images.size
