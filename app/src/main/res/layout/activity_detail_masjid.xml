@@ -117,6 +117,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:textColor="@color/grey_40"
                         android:text="Kelurahan" />
 
                     <TextView
@@ -124,6 +125,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:textColor="@color/grey_40"
                         android:text="-" />
 
                 </LinearLayout>
@@ -147,6 +149,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:textColor="@color/grey_40"
                         android:text="Kecamatan" />
 
                     <TextView
@@ -154,6 +157,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:textColor="@color/grey_40"
                         android:text="-" />
 
                 </LinearLayout>
@@ -177,6 +181,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:textColor="@color/grey_40"
                         android:text="Informasi" />
 
                     <TextView
@@ -184,6 +189,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:textColor="@color/grey_40"
                         android:text="-" />
 
                 </LinearLayout>
