@@ -118,9 +118,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:text="Kelurahan:"
-                        android:textStyle="bold"
                         android:textColor="@color/black"
-                        android:textSize="17sp" />
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tv_kelurahan"
@@ -153,9 +153,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:text="Kecamatan:"
-                        android:textStyle="bold"
                         android:textColor="@color/black"
-                        android:textSize="17sp" />
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tv_kecamatan"
@@ -188,11 +188,11 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:text="Informasi:"
-                        android:textStyle="bold"
                         android:textColor="@color/black"
-                        android:textSize="17sp" />
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
 
-                    <TextView
+                    <me.biubiubiu.justifytext.library.JustifyTextView
                         android:id="@+id/tv_informasi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

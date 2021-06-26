@@ -72,4 +72,7 @@ dependencies {
     implementation "com.jakewharton.timber:timber:$timber"
 
     implementation "com.karumi:dexter:$dexter"
+
+    //justify
+    implementation 'me.biubiubiu.justifytext:library:1.1'
 }
