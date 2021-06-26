@@ -110,22 +110,25 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:minHeight="@dimen/spacing_mxlarge"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:text="Informasi:"
+                        android:textStyle="bold"
                         android:textColor="@color/black"
-                        android:text="Informasi" />
+                        android:textSize="17sp" />
 
                     <TextView
                         android:id="@+id/tv_informasi"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:text="-"
                         android:textColor="@color/black"
-                        android:text="-" />
+                        android:textSize="17sp" />
 
                 </LinearLayout>
 
