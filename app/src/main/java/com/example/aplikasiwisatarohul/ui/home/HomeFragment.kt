@@ -224,6 +224,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
                 when (binding?.vpGaleri?.currentItem) {
                     0 -> binding?.vpGaleri?.currentItem = 1
                     1 -> binding?.vpGaleri?.currentItem = 2
+                    2 -> binding?.vpGaleri?.currentItem = 3
                     else -> binding?.vpGaleri?.currentItem = 0
                 }
             }
