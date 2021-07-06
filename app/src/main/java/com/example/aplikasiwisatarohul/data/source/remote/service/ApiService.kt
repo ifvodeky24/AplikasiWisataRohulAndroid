@@ -67,4 +67,46 @@ interface ApiService {
     @GET("penginapan/get-all")
     fun getAllPenginapan(
     ): Call<PenginapanResponse>
+
+    @GET("wisata/get-nearby-wisata")
+    fun getNearbyWisata(
+        @Query("lat") lat: String?,
+        @Query("long") long: String?,
+    ): Call<WisataNearbyResponse>
+
+    @GET("travel/get-nearby-travel")
+    fun getNearbyTravel(
+        @Query("lat") lat: String?,
+        @Query("long") long: String?,
+    ): Call<TravelNearbyResponse>
+
+    @GET("spbu/get-nearby-spbu")
+    fun getNearbySpbu(
+        @Query("lat") lat: String?,
+        @Query("long") long: String?,
+    ): Call<SpbuNearbyResponse>
+
+    @GET("penginapan/get-nearby-penginapan")
+    fun getNearbyPenginapan(
+        @Query("lat") lat: String?,
+        @Query("long") long: String?,
+    ): Call<PenginapanNearbyResponse>
+
+    @GET("masjid/get-nearby-masjid")
+    fun getNearbyMasjid(
+        @Query("lat") lat: String?,
+        @Query("long") long: String?,
+    ): Call<MasjidNearbyResponse>
+
+    @GET("event/get-nearby-event")
+    fun getNearbyEvent(
+        @Query("lat") lat: String?,
+        @Query("long") long: String?,
+    ): Call<EventNearbyResponse>
+
+    @GET("atm/get-nearby-atm")
+    fun getNearbyAtm(
+        @Query("lat") lat: String?,
+        @Query("long") long: String?,
+    ): Call<AtmNearbyResponse>
 }

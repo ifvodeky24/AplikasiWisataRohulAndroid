@@ -21,3 +21,23 @@ data class Atm(
     val nama_atm: String,
     val updatedAt: String
 ) : Parcelable
+
+data class AtmNearbyResponse(
+    val data: List<AtmNearby>
+)
+
+@Parcelize
+data class AtmNearby(
+    val alamat: String,
+    val createdAt: String,
+    val foto: String,
+    val id_atm: String,
+    val informasi: String,
+    val kecamatan: String,
+    val kelurahan: String,
+    val latitude: String,
+    val longitude: String,
+    val nama_atm: String,
+    val updatedAt: String,
+    val distance: String
+) : Parcelable

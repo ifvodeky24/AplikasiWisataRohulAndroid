@@ -21,3 +21,23 @@ data class Penginapan(
     val kelurahan: String,
     val updatedAt: String
 ) : Parcelable
+
+data class PenginapanNearbyResponse(
+    val data: List<PenginapanNearby>
+)
+
+@Parcelize
+data class PenginapanNearby(
+    val alamat: String,
+    val createdAt: String,
+    val foto: String,
+    val id_penginapan: String,
+    val informasi: String,
+    val latitude: String,
+    val longitude: String,
+    val nama_penginapan: String,
+    val kecamatan: String,
+    val kelurahan: String,
+    val updatedAt: String,
+    val distance: String
+) : Parcelable

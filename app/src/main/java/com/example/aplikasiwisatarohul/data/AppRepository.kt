@@ -141,4 +141,108 @@ class AppRepository private constructor(
 
         }.asLiveData()
     }
+
+    override fun getNearbyWisata(
+        lat: String,
+        long: String
+    ): LiveData<Resource<List<WisataNearby>>> {
+        return object : NetworkOnlyResource<List<WisataNearby>, List<WisataNearby>>(appExecutors) {
+            override fun handleCallResult(item: List<WisataNearby>?): List<WisataNearby>? {
+                return item
+            }
+
+            override fun createCall(): LiveData<ApiResponse<List<WisataNearby>>> {
+                return remoteDataSource.getNearbyWisata(lat, long)
+            }
+
+        }.asLiveData()
+    }
+
+    override fun getNearbyTravel(
+        lat: String,
+        long: String
+    ): LiveData<Resource<List<TravelNearby>>> {
+        return object : NetworkOnlyResource<List<TravelNearby>, List<TravelNearby>>(appExecutors) {
+            override fun handleCallResult(item: List<TravelNearby>?): List<TravelNearby>? {
+                return item
+            }
+
+            override fun createCall(): LiveData<ApiResponse<List<TravelNearby>>> {
+                return remoteDataSource.getNearbyTravel(lat, long)
+            }
+
+        }.asLiveData()
+    }
+
+    override fun getNearbySpbu(lat: String, long: String): LiveData<Resource<List<SpbuNearby>>> {
+        return object : NetworkOnlyResource<List<SpbuNearby>, List<SpbuNearby>>(appExecutors) {
+            override fun handleCallResult(item: List<SpbuNearby>?): List<SpbuNearby>? {
+                return item
+            }
+
+            override fun createCall(): LiveData<ApiResponse<List<SpbuNearby>>> {
+                return remoteDataSource.getNearbySpbu(lat, long)
+            }
+
+        }.asLiveData()
+    }
+
+    override fun getNearbyPenginapan(
+        lat: String,
+        long: String
+    ): LiveData<Resource<List<PenginapanNearby>>> {
+        return object :
+            NetworkOnlyResource<List<PenginapanNearby>, List<PenginapanNearby>>(appExecutors) {
+            override fun handleCallResult(item: List<PenginapanNearby>?): List<PenginapanNearby>? {
+                return item
+            }
+
+            override fun createCall(): LiveData<ApiResponse<List<PenginapanNearby>>> {
+                return remoteDataSource.getNearbyPenginapan(lat, long)
+            }
+
+        }.asLiveData()
+    }
+
+    override fun getNearbyMasjid(
+        lat: String,
+        long: String
+    ): LiveData<Resource<List<MasjidNearby>>> {
+        return object : NetworkOnlyResource<List<MasjidNearby>, List<MasjidNearby>>(appExecutors) {
+            override fun handleCallResult(item: List<MasjidNearby>?): List<MasjidNearby>? {
+                return item
+            }
+
+            override fun createCall(): LiveData<ApiResponse<List<MasjidNearby>>> {
+                return remoteDataSource.getNearbyMasjid(lat, long)
+            }
+
+        }.asLiveData()
+    }
+
+    override fun getNearbyEvent(lat: String, long: String): LiveData<Resource<List<EventNearby>>> {
+        return object : NetworkOnlyResource<List<EventNearby>, List<EventNearby>>(appExecutors) {
+            override fun handleCallResult(item: List<EventNearby>?): List<EventNearby>? {
+                return item
+            }
+
+            override fun createCall(): LiveData<ApiResponse<List<EventNearby>>> {
+                return remoteDataSource.getNearbyEvent(lat, long)
+            }
+
+        }.asLiveData()
+    }
+
+    override fun getNearbyAtm(lat: String, long: String): LiveData<Resource<List<AtmNearby>>> {
+        return object : NetworkOnlyResource<List<AtmNearby>, List<AtmNearby>>(appExecutors) {
+            override fun handleCallResult(item: List<AtmNearby>?): List<AtmNearby>? {
+                return item
+            }
+
+            override fun createCall(): LiveData<ApiResponse<List<AtmNearby>>> {
+                return remoteDataSource.getNearbyAtm(lat, long)
+            }
+
+        }.asLiveData()
+    }
 }

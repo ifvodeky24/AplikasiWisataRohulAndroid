@@ -270,4 +270,240 @@ class RemoteDataSource(private val apiConfig: ApiConfig) {
         })
         return listPenginapan
     }
+
+    fun getNearbyWisata(lat: String, long: String): LiveData<ApiResponse<List<WisataNearby>>> {
+        val listWisata = MutableLiveData<ApiResponse<List<WisataNearby>>>()
+
+        apiConfig.client().getNearbyWisata(lat, long)
+            .enqueue(object : Callback<WisataNearbyResponse> {
+                override fun onResponse(
+                    call: Call<WisataNearbyResponse>,
+                    response: Response<WisataNearbyResponse>
+                ) {
+                    if (response.code() == 200) {
+                        response.body()?.data?.let {
+                            if (it.isNotEmpty()) {
+                                Timber.d("oiii ${response.body()?.data}")
+                                listWisata.value = ApiResponse.success(it)
+                            } else if (it.isEmpty()) {
+                                listWisata.value = ApiResponse.empty(EMPTY_DATA, it)
+                            }
+                        }
+                    } else {
+                        response.body()?.data?.let {
+                            listWisata.value = ApiResponse.error(ERROR_CONNECTION, it)
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<WisataNearbyResponse>, t: Throwable) {
+                    listWisata.value = ApiResponse.error(ERROR_CONNECTION, null)
+                }
+            })
+        return listWisata
+    }
+
+    fun getNearbyTravel(lat: String, long: String): LiveData<ApiResponse<List<TravelNearby>>> {
+        val listTravel = MutableLiveData<ApiResponse<List<TravelNearby>>>()
+
+        apiConfig.client().getNearbyTravel(lat, long)
+            .enqueue(object : Callback<TravelNearbyResponse> {
+                override fun onResponse(
+                    call: Call<TravelNearbyResponse>,
+                    response: Response<TravelNearbyResponse>
+                ) {
+                    if (response.code() == 200) {
+                        response.body()?.data?.let {
+                            if (it.isNotEmpty()) {
+                                Timber.d("oiii ${response.body()?.data}")
+                                listTravel.value = ApiResponse.success(it)
+                            } else if (it.isEmpty()) {
+                                listTravel.value = ApiResponse.empty(EMPTY_DATA, it)
+                            }
+                        }
+                    } else {
+                        response.body()?.data?.let {
+                            listTravel.value = ApiResponse.error(ERROR_CONNECTION, it)
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<TravelNearbyResponse>, t: Throwable) {
+                    listTravel.value = ApiResponse.error(ERROR_CONNECTION, null)
+                }
+            })
+        return listTravel
+    }
+
+    fun getNearbySpbu(lat: String, long: String): LiveData<ApiResponse<List<SpbuNearby>>> {
+        val listSpbu = MutableLiveData<ApiResponse<List<SpbuNearby>>>()
+
+        apiConfig.client().getNearbySpbu(lat, long)
+            .enqueue(object : Callback<SpbuNearbyResponse> {
+                override fun onResponse(
+                    call: Call<SpbuNearbyResponse>,
+                    response: Response<SpbuNearbyResponse>
+                ) {
+                    if (response.code() == 200) {
+                        response.body()?.data?.let {
+                            if (it.isNotEmpty()) {
+                                Timber.d("oiii ${response.body()?.data}")
+                                listSpbu.value = ApiResponse.success(it)
+                            } else if (it.isEmpty()) {
+                                listSpbu.value = ApiResponse.empty(EMPTY_DATA, it)
+                            }
+                        }
+                    } else {
+                        response.body()?.data?.let {
+                            listSpbu.value = ApiResponse.error(ERROR_CONNECTION, it)
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<SpbuNearbyResponse>, t: Throwable) {
+                    listSpbu.value = ApiResponse.error(ERROR_CONNECTION, null)
+                }
+            })
+        return listSpbu
+    }
+
+    fun getNearbyPenginapan(
+        lat: String,
+        long: String
+    ): LiveData<ApiResponse<List<PenginapanNearby>>> {
+        val listPenginapan = MutableLiveData<ApiResponse<List<PenginapanNearby>>>()
+
+        apiConfig.client().getNearbyPenginapan(lat, long)
+            .enqueue(object : Callback<PenginapanNearbyResponse> {
+                override fun onResponse(
+                    call: Call<PenginapanNearbyResponse>,
+                    response: Response<PenginapanNearbyResponse>
+                ) {
+                    if (response.code() == 200) {
+                        response.body()?.data?.let {
+                            if (it.isNotEmpty()) {
+                                Timber.d("oiii ${response.body()?.data}")
+                                listPenginapan.value = ApiResponse.success(it)
+                            } else if (it.isEmpty()) {
+                                listPenginapan.value = ApiResponse.empty(EMPTY_DATA, it)
+                            }
+                        }
+                    } else {
+                        response.body()?.data?.let {
+                            listPenginapan.value = ApiResponse.error(ERROR_CONNECTION, it)
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<PenginapanNearbyResponse>, t: Throwable) {
+                    listPenginapan.value = ApiResponse.error(ERROR_CONNECTION, null)
+                }
+            })
+        return listPenginapan
+    }
+
+    fun getNearbyMasjid(
+        lat: String,
+        long: String
+    ): LiveData<ApiResponse<List<MasjidNearby>>> {
+        val listMasjid = MutableLiveData<ApiResponse<List<MasjidNearby>>>()
+
+        apiConfig.client().getNearbyMasjid(lat, long)
+            .enqueue(object : Callback<MasjidNearbyResponse> {
+                override fun onResponse(
+                    call: Call<MasjidNearbyResponse>,
+                    response: Response<MasjidNearbyResponse>
+                ) {
+                    if (response.code() == 200) {
+                        response.body()?.data?.let {
+                            if (it.isNotEmpty()) {
+                                Timber.d("oiii ${response.body()?.data}")
+                                listMasjid.value = ApiResponse.success(it)
+                            } else if (it.isEmpty()) {
+                                listMasjid.value = ApiResponse.empty(EMPTY_DATA, it)
+                            }
+                        }
+                    } else {
+                        response.body()?.data?.let {
+                            listMasjid.value = ApiResponse.error(ERROR_CONNECTION, it)
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<MasjidNearbyResponse>, t: Throwable) {
+                    listMasjid.value = ApiResponse.error(ERROR_CONNECTION, null)
+                }
+            })
+        return listMasjid
+    }
+
+    fun getNearbyEvent(
+        lat: String,
+        long: String
+    ): LiveData<ApiResponse<List<EventNearby>>> {
+        val listEvent = MutableLiveData<ApiResponse<List<EventNearby>>>()
+
+        apiConfig.client().getNearbyEvent(lat, long)
+            .enqueue(object : Callback<EventNearbyResponse> {
+                override fun onResponse(
+                    call: Call<EventNearbyResponse>,
+                    response: Response<EventNearbyResponse>
+                ) {
+                    if (response.code() == 200) {
+                        response.body()?.data?.let {
+                            if (it.isNotEmpty()) {
+                                Timber.d("oiii ${response.body()?.data}")
+                                listEvent.value = ApiResponse.success(it)
+                            } else if (it.isEmpty()) {
+                                listEvent.value = ApiResponse.empty(EMPTY_DATA, it)
+                            }
+                        }
+                    } else {
+                        response.body()?.data?.let {
+                            listEvent.value = ApiResponse.error(ERROR_CONNECTION, it)
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<EventNearbyResponse>, t: Throwable) {
+                    listEvent.value = ApiResponse.error(ERROR_CONNECTION, null)
+                }
+            })
+        return listEvent
+    }
+
+    fun getNearbyAtm(
+        lat: String,
+        long: String
+    ): LiveData<ApiResponse<List<AtmNearby>>> {
+        val listAtm = MutableLiveData<ApiResponse<List<AtmNearby>>>()
+
+        apiConfig.client().getNearbyAtm(lat, long)
+            .enqueue(object : Callback<AtmNearbyResponse> {
+                override fun onResponse(
+                    call: Call<AtmNearbyResponse>,
+                    response: Response<AtmNearbyResponse>
+                ) {
+                    if (response.code() == 200) {
+                        response.body()?.data?.let {
+                            if (it.isNotEmpty()) {
+                                Timber.d("oiii ${response.body()?.data}")
+                                listAtm.value = ApiResponse.success(it)
+                            } else if (it.isEmpty()) {
+                                listAtm.value = ApiResponse.empty(EMPTY_DATA, it)
+                            }
+                        }
+                    } else {
+                        response.body()?.data?.let {
+                            listAtm.value = ApiResponse.error(ERROR_CONNECTION, it)
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<AtmNearbyResponse>, t: Throwable) {
+                    listAtm.value = ApiResponse.error(ERROR_CONNECTION, null)
+                }
+            })
+        return listAtm
+    }
 }
