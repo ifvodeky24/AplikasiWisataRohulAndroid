@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.example.aplikasiwisatarohul.data.AppRepository
 import com.example.aplikasiwisatarohul.data.source.remote.response.Atm
-import com.example.aplikasiwisatarohul.data.source.remote.response.AtmNearby
 import com.example.aplikasiwisatarohul.vo.Resource
 
 class AtmViewModel(private val appRepository: AppRepository) : ViewModel() {
@@ -15,6 +14,6 @@ class AtmViewModel(private val appRepository: AppRepository) : ViewModel() {
     fun getNearbyAtm(
         lat: String,
         long: String
-    ): LiveData<Resource<List<AtmNearby>>> =
+    ): LiveData<Resource<List<Atm>>> =
         appRepository.getNearbyAtm(lat, long)
 }

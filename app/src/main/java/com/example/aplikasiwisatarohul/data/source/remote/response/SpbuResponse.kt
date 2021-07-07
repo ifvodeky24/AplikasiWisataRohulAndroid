@@ -19,25 +19,26 @@ data class Spbu(
     val latitude: String,
     val longitude: String,
     val nama_spbu: String,
-    val updatedAt: String
-) : Parcelable
-
-data class SpbuNearbyResponse(
-    val data: List<SpbuNearby>
-)
-
-@Parcelize
-data class SpbuNearby(
-    val alamat: String,
-    val createdAt: String,
-    val foto: String,
-    val id_spbu: String,
-    val informasi: String,
-    val kecamatan: String,
-    val kelurahan: String,
-    val latitude: String,
-    val longitude: String,
-    val nama_spbu: String,
     val updatedAt: String,
-    val distance: String
+    val distance: String?
 ) : Parcelable
+
+//data class SpbuNearbyResponse(
+//    val data: List<SpbuNearby>
+//)
+//
+//@Parcelize
+//data class SpbuNearby(
+//    val alamat: String,
+//    val createdAt: String,
+//    val foto: String,
+//    val id_spbu: String,
+//    val informasi: String,
+//    val kecamatan: String,
+//    val kelurahan: String,
+//    val latitude: String,
+//    val longitude: String,
+//    val nama_spbu: String,
+//    val updatedAt: String,
+//    val distance: String
+//) : Parcelable

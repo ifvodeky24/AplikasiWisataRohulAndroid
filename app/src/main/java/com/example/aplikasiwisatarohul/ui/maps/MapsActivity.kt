@@ -3,9 +3,9 @@ package com.example.aplikasiwisatarohul.ui.maps
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.aplikasiwisatarohul.R
@@ -26,7 +26,6 @@ import com.example.aplikasiwisatarohul.ui.travel.TravelViewModel
 import com.example.aplikasiwisatarohul.ui.wisata.WisataViewModel
 import com.example.aplikasiwisatarohul.vo.Status
 import com.example.aplikasiwisatarohul.vo.ViewModelFactory
-
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -57,12 +56,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private var travelList: MutableList<Travel> = mutableListOf()
     private var wisataList: MutableList<Wisata> = mutableListOf()
     private var eventList: MutableList<Event> = mutableListOf()
+    private var latitude: Double = 0.0
+    private var longitude: Double = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        title = "Peta Wisata"
 
         val factory = ViewModelFactory.getInstance(this)
         atmViewModel = ViewModelProvider(this, factory)[AtmViewModel::class.java]
@@ -77,6 +80,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        binding.llLokasiTerdekat.setOnClickListener {
+            getAllNearby()
+        }
     }
 
 
@@ -109,9 +116,388 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap?.uiSettings?.isZoomControlsEnabled = true
         mMap?.uiSettings?.isZoomGesturesEnabled = true
 
+        mMap.setOnMyLocationChangeListener { arg0 ->
+            latitude = arg0.latitude
+            longitude = arg0.longitude
+//                mMap.addMarker(
+//                    MarkerOptions().position(
+//                        LatLng(
+//                            arg0.latitude,
+//                            arg0.longitude
+//                        )
+//                    ).title("It's Me!")
+//                )
+        }
+
 //        val sydney = LatLng(-34.0, 151.0)
         mMap?.moveCamera(CameraUpdateFactory.newLatLng(pekanbaru))
 
+        getAllData()
+
+        mMap?.setOnInfoWindowClickListener { marker ->
+
+            when (marker.snippet) {
+                "masjid" -> {
+                    Timber.d("ddddd ${Gson().toJson(masjidList)}")
+
+                    var masjidListing: List<Masjid> = listOf()
+                    for (i in masjidList.indices) {
+                        masjidListing = masjidList.filter { a -> a.nama_masjid == marker.title }
+                    }
+
+                    val moveWithObjectIntent =
+                        Intent(this, DetailMasjidActivity::class.java)
+                    moveWithObjectIntent.putExtra(DetailMasjidActivity.DATA, masjidListing[0])
+                    startActivity(moveWithObjectIntent)
+                }
+                "atm" -> {
+                    Timber.d("ddddd ${Gson().toJson(atmList)}")
+
+                    var atmListing: List<Atm> = listOf()
+                    for (i in atmList.indices) {
+                        atmListing = atmList.filter { a -> a.nama_atm == marker.title }
+                    }
+
+                    val moveWithObjectIntent =
+                        Intent(this, DetailAtmActivity::class.java)
+                    moveWithObjectIntent.putExtra(DetailAtmActivity.DATA, atmListing[0])
+                    startActivity(moveWithObjectIntent)
+                }
+                "penginapan" -> {
+                    Timber.d("ddddd ${Gson().toJson(penginapanList)}")
+
+                    var penginapanListing: List<Penginapan> = listOf()
+                    for (i in penginapanList.indices) {
+                        penginapanListing =
+                            penginapanList.filter { a -> a.nama_penginapan == marker.title }
+                    }
+
+                    val moveWithObjectIntent =
+                        Intent(this, DetailPenginapanActivity::class.java)
+                    moveWithObjectIntent.putExtra(DetailPenginapanActivity.DATA, penginapanListing[0])
+                    startActivity(moveWithObjectIntent)
+                }
+                "travel" -> {
+                    Timber.d("ddddd ${Gson().toJson(travelList)}")
+
+                    var travelListing: List<Travel> = listOf()
+                    for (i in travelList.indices) {
+                        travelListing = travelList.filter { a -> a.nama_travel == marker.title }
+                    }
+
+                    val moveWithObjectIntent =
+                        Intent(this, DetailTravelActivity::class.java)
+                    moveWithObjectIntent.putExtra(DetailTravelActivity.DATA, travelListing[0])
+                    startActivity(moveWithObjectIntent)
+                }
+                "event" -> {
+                    Timber.d("ddddd ${Gson().toJson(eventList)}")
+
+                    var eventListing: List<Event> = listOf()
+                    for (i in eventList.indices) {
+                        eventListing = eventList.filter { a -> a.nama_event == marker.title }
+                    }
+
+                    val moveWithObjectIntent =
+                        Intent(this, DetailEventActivity::class.java)
+                    moveWithObjectIntent.putExtra(DetailEventActivity.DATA, eventListing[0])
+                    startActivity(moveWithObjectIntent)
+                }
+                "spbu" -> {
+                    Timber.d("ddddd ${Gson().toJson(spbuList)}")
+
+                    var spbuListing: List<Spbu> = listOf()
+                    for (i in spbuList.indices) {
+                        spbuListing = spbuList.filter { a -> a.nama_spbu == marker.title }
+                    }
+
+                    val moveWithObjectIntent =
+                        Intent(this, DetailSpbuActivity::class.java)
+                    moveWithObjectIntent.putExtra(DetailSpbuActivity.DATA, spbuListing[0])
+                    startActivity(moveWithObjectIntent)
+                }
+            }
+        }
+    }
+
+    private fun getAllNearby() {
+        atmList.clear()
+        masjidList.clear()
+        penginapanList.clear()
+        spbuList.clear()
+        travelList.clear()
+        wisataList.clear()
+        eventList.clear()
+        mMap.clear()
+
+        Timber.d("lokasiiiiiiii $latitude and $longitude")
+        atmViewModel.getNearbyAtm(latitude.toString(), longitude.toString()).observe(this, { atm ->
+            when (atm.status) {
+                Status.SUCCESS -> {
+                    if (atm.data != null) {
+                        for (i in atm.data.indices) {
+                            val latLng = LatLng(
+                                atm.data[i].latitude.toDouble(),
+                                atm.data[i].longitude.toDouble()
+                            )
+                            addMarkerAtm(atm.data[i], latLng, atm.data[i].nama_atm)
+
+                        }
+
+                        atmList.addAll(atm.data)
+                    }
+                }
+
+                Status.LOADING -> {
+
+                }
+
+                Status.ERROR -> {
+                    Toast.makeText(this, "Terjadi kesalahan ${atm.message}", Toast.LENGTH_SHORT)
+                        .show()
+                }
+            }
+        })
+
+        masjidiewModel.getNearbyMasjid(latitude.toString(), longitude.toString()).observe(this, { masjid ->
+            when (masjid.status) {
+                Status.SUCCESS -> {
+                    if (masjid.data != null) {
+                        for (i in masjid.data.indices) {
+                            val latLng = LatLng(
+                                masjid.data[i].latitude.toDouble(),
+                                masjid.data[i].longitude.toDouble()
+                            )
+                            addMarkerMasjid(
+                                masjid.data[i],
+                                latLng,
+                                masjid.data[i].nama_masjid
+                            )
+                        }
+
+                        masjidList.addAll(masjid.data)
+                    }
+
+
+                }
+
+                Status.LOADING -> {
+
+                }
+
+                Status.ERROR -> {
+                    Toast.makeText(
+                        this,
+                        "Terjadi kesalahan ${masjid.message}",
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
+                }
+            }
+        })
+
+        penginapanViewModel.getNearbyPenginapan(latitude.toString(), longitude.toString())
+            .observe(this, { penginapan ->
+                when (penginapan.status) {
+                    Status.SUCCESS -> {
+                        if (penginapan.data != null) {
+                            for (i in penginapan.data.indices) {
+                                val latLng = LatLng(
+                                    penginapan.data[i].latitude.toDouble(),
+                                    penginapan.data[i].longitude.toDouble()
+                                )
+                                addMarkerPenginapan(
+                                    penginapan.data[i],
+                                    latLng,
+                                    penginapan.data[i].nama_penginapan
+                                )
+                            }
+
+                            penginapanList.addAll(penginapan.data)
+                        }
+
+
+                    }
+
+                    Status.LOADING -> {
+
+                    }
+
+                    Status.ERROR -> {
+                        Toast.makeText(
+                            this,
+                            "Terjadi kesalahan ${penginapan.message}",
+                            Toast.LENGTH_SHORT
+                        )
+                            .show()
+                    }
+                }
+            })
+
+        spbuViewModel.getNearbySpbu(latitude.toString(), longitude.toString())
+            .observe(this, { spbu ->
+                when (spbu.status) {
+                    Status.SUCCESS -> {
+                        if (spbu.data != null) {
+                            for (i in spbu.data.indices) {
+                                val latLng = LatLng(
+                                    spbu.data[i].latitude.toDouble(),
+                                    spbu.data[i].longitude.toDouble()
+                                )
+                                addMarkerSpbu(
+                                    spbu.data[i],
+                                    latLng,
+                                    spbu.data[i].nama_spbu
+                                )
+                            }
+
+                            spbuList.addAll(spbu.data)
+                        }
+                    }
+
+                    Status.LOADING -> {
+
+                    }
+
+                    Status.ERROR -> {
+                        Toast.makeText(
+                            this,
+                            "Terjadi kesalahan ${spbu.message}",
+                            Toast.LENGTH_SHORT
+                        )
+                            .show()
+                    }
+                }
+            })
+
+        travelViewModel.getNearbyTravel(latitude.toString(), longitude.toString())
+            .observe(
+                this,
+                { travel ->
+                    when (travel.status) {
+                        Status.SUCCESS -> {
+                            if (travel.data != null) {
+                                for (i in travel.data.indices) {
+                                    val latLng =
+                                        LatLng(
+                                            travel.data[i].latitude.toDouble(),
+                                            travel.data[i].longitude.toDouble()
+                                        )
+                                    addMarkerTravel(
+                                        travel.data[i],
+                                        latLng,
+                                        travel.data[i].nama_travel
+                                    )
+                                }
+
+                                travelList.addAll(travel.data)
+                            }
+
+                        }
+
+                        Status.LOADING -> {
+
+                        }
+
+                        Status.ERROR -> {
+                            Toast.makeText(
+                                this,
+                                "Terjadi kesalahan ${travel.message}",
+                                Toast.LENGTH_SHORT
+                            )
+                                .show()
+                        }
+                    }
+                })
+
+        wisataViewModel.getNearbyWisata(latitude.toString(), longitude.toString())
+            .observe(
+                this,
+                { wisata ->
+                    when (wisata.status) {
+                        Status.SUCCESS -> {
+                            if (wisata.data != null) {
+                                for (i in wisata.data.indices) {
+                                    val latLng =
+                                        LatLng(
+                                            wisata.data[i].latitude.toDouble(),
+                                            wisata.data[i].longitude.toDouble()
+                                        )
+                                    addMarkerWisata(
+                                        wisata.data[i],
+                                        latLng,
+                                        wisata.data[i].nama_wisata
+                                    )
+                                }
+
+                                wisataList.addAll(wisata.data)
+                            }
+                        }
+
+                        Status.LOADING -> {
+
+                        }
+
+                        Status.ERROR -> {
+                            Toast.makeText(
+                                this,
+                                "Terjadi kesalahan ${wisata.message}",
+                                Toast.LENGTH_SHORT
+                            )
+                                .show()
+                        }
+                    }
+                })
+
+        eventViewModel.getNearbyEvent(latitude.toString(), longitude.toString())
+            .observe(
+                this,
+                { event ->
+                    when (event.status) {
+                        Status.SUCCESS -> {
+                            if (event.data != null) {
+                                for (i in event.data.indices) {
+                                    val latLng =
+                                        LatLng(
+                                            event.data[i].latitude.toDouble(),
+                                            event.data[i].longitude.toDouble()
+                                        )
+                                    addMarkerEvent(
+                                        event.data[i],
+                                        latLng,
+                                        event.data[i].nama_event
+                                    )
+                                }
+
+                                eventList.addAll(event.data)
+                            }
+                        }
+
+                        Status.LOADING -> {
+
+                        }
+
+                        Status.ERROR -> {
+                            Toast.makeText(
+                                this,
+                                "Terjadi kesalahan ${event.message}",
+                                Toast.LENGTH_SHORT
+                            )
+                                .show()
+                        }
+                    }
+                })
+    }
+
+    private fun getAllData() {
+        atmList.clear()
+        masjidList.clear()
+        penginapanList.clear()
+        spbuList.clear()
+        travelList.clear()
+        wisataList.clear()
+        eventList.clear()
+        mMap.clear()
         atmViewModel.getAllAtm().observe(this, { atm ->
             when (atm.status) {
                 Status.SUCCESS -> {
@@ -368,91 +754,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                         }
                     }
                 })
-
-        mMap?.setOnInfoWindowClickListener { marker ->
-
-            when (marker.snippet) {
-                "masjid" -> {
-                    Timber.d("ddddd ${Gson().toJson(masjidList)}")
-
-                    var masjidListing: List<Masjid> = listOf()
-                    for (i in masjidList.indices) {
-                        masjidListing = masjidList.filter { a -> a.nama_masjid == marker.title }
-                    }
-
-                    val moveWithObjectIntent =
-                        Intent(this, DetailMasjidActivity::class.java)
-                    moveWithObjectIntent.putExtra(DetailMasjidActivity.DATA, masjidListing[0])
-                    startActivity(moveWithObjectIntent)
-                }
-                "atm" -> {
-                    Timber.d("ddddd ${Gson().toJson(atmList)}")
-
-                    var atmListing: List<Atm> = listOf()
-                    for (i in atmList.indices) {
-                        atmListing = atmList.filter { a -> a.nama_atm == marker.title }
-                    }
-
-                    val moveWithObjectIntent =
-                        Intent(this, DetailAtmActivity::class.java)
-                    moveWithObjectIntent.putExtra(DetailAtmActivity.DATA, atmListing[0])
-                    startActivity(moveWithObjectIntent)
-                }
-                "penginapan" -> {
-                    Timber.d("ddddd ${Gson().toJson(penginapanList)}")
-
-                    var penginapanListing: List<Penginapan> = listOf()
-                    for (i in penginapanList.indices) {
-                        penginapanListing =
-                            penginapanList.filter { a -> a.nama_penginapan == marker.title }
-                    }
-
-                    val moveWithObjectIntent =
-                        Intent(this, DetailPenginapanActivity::class.java)
-                    moveWithObjectIntent.putExtra(DetailPenginapanActivity.DATA, penginapanListing[0])
-                    startActivity(moveWithObjectIntent)
-                }
-                "travel" -> {
-                    Timber.d("ddddd ${Gson().toJson(travelList)}")
-
-                    var travelListing: List<Travel> = listOf()
-                    for (i in travelList.indices) {
-                        travelListing = travelList.filter { a -> a.nama_travel == marker.title }
-                    }
-
-                    val moveWithObjectIntent =
-                        Intent(this, DetailTravelActivity::class.java)
-                    moveWithObjectIntent.putExtra(DetailTravelActivity.DATA, travelListing[0])
-                    startActivity(moveWithObjectIntent)
-                }
-                "event" -> {
-                    Timber.d("ddddd ${Gson().toJson(eventList)}")
-
-                    var eventListing: List<Event> = listOf()
-                    for (i in eventList.indices) {
-                        eventListing = eventList.filter { a -> a.nama_event == marker.title }
-                    }
-
-                    val moveWithObjectIntent =
-                        Intent(this, DetailEventActivity::class.java)
-                    moveWithObjectIntent.putExtra(DetailEventActivity.DATA, eventListing[0])
-                    startActivity(moveWithObjectIntent)
-                }
-                "spbu" -> {
-                    Timber.d("ddddd ${Gson().toJson(spbuList)}")
-
-                    var spbuListing: List<Spbu> = listOf()
-                    for (i in spbuList.indices) {
-                        spbuListing = spbuList.filter { a -> a.nama_spbu == marker.title }
-                    }
-
-                    val moveWithObjectIntent =
-                        Intent(this, DetailSpbuActivity::class.java)
-                    moveWithObjectIntent.putExtra(DetailSpbuActivity.DATA, spbuListing[0])
-                    startActivity(moveWithObjectIntent)
-                }
-            }
-        }
     }
 
     private fun addMarkerAtm(data: Atm, latLng: LatLng, nama_atm: String) {

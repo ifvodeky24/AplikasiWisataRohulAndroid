@@ -17,23 +17,24 @@ data class Event(
     val latitude: String,
     val longitude: String,
     val nama_event: String,
-    val updatedAt: String
-) : Parcelable
-
-data class EventNearbyResponse(
-    val data: List<EventNearby>
-)
-
-@Parcelize
-data class EventNearby(
-    val alamat: String,
-    val createdAt: String,
-    val foto: String,
-    val id_event: String,
-    val informasi: String,
-    val latitude: String,
-    val longitude: String,
-    val nama_event: String,
     val updatedAt: String,
-    val distance: String
+    val distance: String?
 ) : Parcelable
+
+//data class EventNearbyResponse(
+//    val data: List<EventNearby>
+//)
+//
+//@Parcelize
+//data class EventNearby(
+//    val alamat: String,
+//    val createdAt: String,
+//    val foto: String,
+//    val id_event: String,
+//    val informasi: String,
+//    val latitude: String,
+//    val longitude: String,
+//    val nama_event: String,
+//    val updatedAt: String,
+//    val distance: String
+//) : Parcelable

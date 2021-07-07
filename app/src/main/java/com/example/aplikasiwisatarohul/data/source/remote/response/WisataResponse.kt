@@ -20,26 +20,27 @@ data class Wisata(
     val longitude: String,
     val informasi: String,
     val nama_wisata: String,
-    val updatedAt: String
-) : Parcelable
-
-data class WisataNearbyResponse(
-    val data: List<WisataNearby>
-)
-
-@Parcelize
-data class WisataNearby(
-    val alamat: String,
-    val createdAt: String,
-    val foto: String,
-    val id_wisata: String,
-    val kategori: String,
-    val kecamatan: String,
-    val kelurahan: String,
-    val latitude: String,
-    val longitude: String,
-    val informasi: String,
-    val nama_wisata: String,
     val updatedAt: String,
-    val distance: String
+    val distance: String?
 ) : Parcelable
+
+//data class WisataNearbyResponse(
+//    val data: List<WisataNearby>
+//)
+//
+//@Parcelize
+//data class WisataNearby(
+//    val alamat: String,
+//    val createdAt: String,
+//    val foto: String,
+//    val id_wisata: String,
+//    val kategori: String,
+//    val kecamatan: String,
+//    val kelurahan: String,
+//    val latitude: String,
+//    val longitude: String,
+//    val informasi: String,
+//    val nama_wisata: String,
+//    val updatedAt: String,
+//    val distance: String
+//) : Parcelable

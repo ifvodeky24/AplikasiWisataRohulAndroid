@@ -271,14 +271,14 @@ class RemoteDataSource(private val apiConfig: ApiConfig) {
         return listPenginapan
     }
 
-    fun getNearbyWisata(lat: String, long: String): LiveData<ApiResponse<List<WisataNearby>>> {
-        val listWisata = MutableLiveData<ApiResponse<List<WisataNearby>>>()
+    fun getNearbyWisata(lat: String, long: String): LiveData<ApiResponse<List<Wisata>>> {
+        val listWisata = MutableLiveData<ApiResponse<List<Wisata>>>()
 
         apiConfig.client().getNearbyWisata(lat, long)
-            .enqueue(object : Callback<WisataNearbyResponse> {
+            .enqueue(object : Callback<WisataResponse> {
                 override fun onResponse(
-                    call: Call<WisataNearbyResponse>,
-                    response: Response<WisataNearbyResponse>
+                    call: Call<WisataResponse>,
+                    response: Response<WisataResponse>
                 ) {
                     if (response.code() == 200) {
                         response.body()?.data?.let {
@@ -296,21 +296,21 @@ class RemoteDataSource(private val apiConfig: ApiConfig) {
                     }
                 }
 
-                override fun onFailure(call: Call<WisataNearbyResponse>, t: Throwable) {
+                override fun onFailure(call: Call<WisataResponse>, t: Throwable) {
                     listWisata.value = ApiResponse.error(ERROR_CONNECTION, null)
                 }
             })
         return listWisata
     }
 
-    fun getNearbyTravel(lat: String, long: String): LiveData<ApiResponse<List<TravelNearby>>> {
-        val listTravel = MutableLiveData<ApiResponse<List<TravelNearby>>>()
+    fun getNearbyTravel(lat: String, long: String): LiveData<ApiResponse<List<Travel>>> {
+        val listTravel = MutableLiveData<ApiResponse<List<Travel>>>()
 
         apiConfig.client().getNearbyTravel(lat, long)
-            .enqueue(object : Callback<TravelNearbyResponse> {
+            .enqueue(object : Callback<TravelResponse> {
                 override fun onResponse(
-                    call: Call<TravelNearbyResponse>,
-                    response: Response<TravelNearbyResponse>
+                    call: Call<TravelResponse>,
+                    response: Response<TravelResponse>
                 ) {
                     if (response.code() == 200) {
                         response.body()?.data?.let {
@@ -328,21 +328,21 @@ class RemoteDataSource(private val apiConfig: ApiConfig) {
                     }
                 }
 
-                override fun onFailure(call: Call<TravelNearbyResponse>, t: Throwable) {
+                override fun onFailure(call: Call<TravelResponse>, t: Throwable) {
                     listTravel.value = ApiResponse.error(ERROR_CONNECTION, null)
                 }
             })
         return listTravel
     }
 
-    fun getNearbySpbu(lat: String, long: String): LiveData<ApiResponse<List<SpbuNearby>>> {
-        val listSpbu = MutableLiveData<ApiResponse<List<SpbuNearby>>>()
+    fun getNearbySpbu(lat: String, long: String): LiveData<ApiResponse<List<Spbu>>> {
+        val listSpbu = MutableLiveData<ApiResponse<List<Spbu>>>()
 
         apiConfig.client().getNearbySpbu(lat, long)
-            .enqueue(object : Callback<SpbuNearbyResponse> {
+            .enqueue(object : Callback<SpbuResponse> {
                 override fun onResponse(
-                    call: Call<SpbuNearbyResponse>,
-                    response: Response<SpbuNearbyResponse>
+                    call: Call<SpbuResponse>,
+                    response: Response<SpbuResponse>
                 ) {
                     if (response.code() == 200) {
                         response.body()?.data?.let {
@@ -360,7 +360,7 @@ class RemoteDataSource(private val apiConfig: ApiConfig) {
                     }
                 }
 
-                override fun onFailure(call: Call<SpbuNearbyResponse>, t: Throwable) {
+                override fun onFailure(call: Call<SpbuResponse>, t: Throwable) {
                     listSpbu.value = ApiResponse.error(ERROR_CONNECTION, null)
                 }
             })
@@ -370,14 +370,14 @@ class RemoteDataSource(private val apiConfig: ApiConfig) {
     fun getNearbyPenginapan(
         lat: String,
         long: String
-    ): LiveData<ApiResponse<List<PenginapanNearby>>> {
-        val listPenginapan = MutableLiveData<ApiResponse<List<PenginapanNearby>>>()
+    ): LiveData<ApiResponse<List<Penginapan>>> {
+        val listPenginapan = MutableLiveData<ApiResponse<List<Penginapan>>>()
 
         apiConfig.client().getNearbyPenginapan(lat, long)
-            .enqueue(object : Callback<PenginapanNearbyResponse> {
+            .enqueue(object : Callback<PenginapanResponse> {
                 override fun onResponse(
-                    call: Call<PenginapanNearbyResponse>,
-                    response: Response<PenginapanNearbyResponse>
+                    call: Call<PenginapanResponse>,
+                    response: Response<PenginapanResponse>
                 ) {
                     if (response.code() == 200) {
                         response.body()?.data?.let {
@@ -395,7 +395,7 @@ class RemoteDataSource(private val apiConfig: ApiConfig) {
                     }
                 }
 
-                override fun onFailure(call: Call<PenginapanNearbyResponse>, t: Throwable) {
+                override fun onFailure(call: Call<PenginapanResponse>, t: Throwable) {
                     listPenginapan.value = ApiResponse.error(ERROR_CONNECTION, null)
                 }
             })
@@ -405,14 +405,14 @@ class RemoteDataSource(private val apiConfig: ApiConfig) {
     fun getNearbyMasjid(
         lat: String,
         long: String
-    ): LiveData<ApiResponse<List<MasjidNearby>>> {
-        val listMasjid = MutableLiveData<ApiResponse<List<MasjidNearby>>>()
+    ): LiveData<ApiResponse<List<Masjid>>> {
+        val listMasjid = MutableLiveData<ApiResponse<List<Masjid>>>()
 
         apiConfig.client().getNearbyMasjid(lat, long)
-            .enqueue(object : Callback<MasjidNearbyResponse> {
+            .enqueue(object : Callback<MasjidResponse> {
                 override fun onResponse(
-                    call: Call<MasjidNearbyResponse>,
-                    response: Response<MasjidNearbyResponse>
+                    call: Call<MasjidResponse>,
+                    response: Response<MasjidResponse>
                 ) {
                     if (response.code() == 200) {
                         response.body()?.data?.let {
@@ -430,7 +430,7 @@ class RemoteDataSource(private val apiConfig: ApiConfig) {
                     }
                 }
 
-                override fun onFailure(call: Call<MasjidNearbyResponse>, t: Throwable) {
+                override fun onFailure(call: Call<MasjidResponse>, t: Throwable) {
                     listMasjid.value = ApiResponse.error(ERROR_CONNECTION, null)
                 }
             })
@@ -440,14 +440,14 @@ class RemoteDataSource(private val apiConfig: ApiConfig) {
     fun getNearbyEvent(
         lat: String,
         long: String
-    ): LiveData<ApiResponse<List<EventNearby>>> {
-        val listEvent = MutableLiveData<ApiResponse<List<EventNearby>>>()
+    ): LiveData<ApiResponse<List<Event>>> {
+        val listEvent = MutableLiveData<ApiResponse<List<Event>>>()
 
         apiConfig.client().getNearbyEvent(lat, long)
-            .enqueue(object : Callback<EventNearbyResponse> {
+            .enqueue(object : Callback<EventResponse> {
                 override fun onResponse(
-                    call: Call<EventNearbyResponse>,
-                    response: Response<EventNearbyResponse>
+                    call: Call<EventResponse>,
+                    response: Response<EventResponse>
                 ) {
                     if (response.code() == 200) {
                         response.body()?.data?.let {
@@ -465,7 +465,7 @@ class RemoteDataSource(private val apiConfig: ApiConfig) {
                     }
                 }
 
-                override fun onFailure(call: Call<EventNearbyResponse>, t: Throwable) {
+                override fun onFailure(call: Call<EventResponse>, t: Throwable) {
                     listEvent.value = ApiResponse.error(ERROR_CONNECTION, null)
                 }
             })
@@ -475,14 +475,14 @@ class RemoteDataSource(private val apiConfig: ApiConfig) {
     fun getNearbyAtm(
         lat: String,
         long: String
-    ): LiveData<ApiResponse<List<AtmNearby>>> {
-        val listAtm = MutableLiveData<ApiResponse<List<AtmNearby>>>()
+    ): LiveData<ApiResponse<List<Atm>>> {
+        val listAtm = MutableLiveData<ApiResponse<List<Atm>>>()
 
         apiConfig.client().getNearbyAtm(lat, long)
-            .enqueue(object : Callback<AtmNearbyResponse> {
+            .enqueue(object : Callback<AtmResponse> {
                 override fun onResponse(
-                    call: Call<AtmNearbyResponse>,
-                    response: Response<AtmNearbyResponse>
+                    call: Call<AtmResponse>,
+                    response: Response<AtmResponse>
                 ) {
                     if (response.code() == 200) {
                         response.body()?.data?.let {
@@ -500,7 +500,7 @@ class RemoteDataSource(private val apiConfig: ApiConfig) {
                     }
                 }
 
-                override fun onFailure(call: Call<AtmNearbyResponse>, t: Throwable) {
+                override fun onFailure(call: Call<AtmResponse>, t: Throwable) {
                     listAtm.value = ApiResponse.error(ERROR_CONNECTION, null)
                 }
             })

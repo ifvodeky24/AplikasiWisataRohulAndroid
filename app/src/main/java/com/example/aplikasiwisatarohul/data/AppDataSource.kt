@@ -22,17 +22,17 @@ interface AppDataSource {
 
     fun getAllPenginapan(): LiveData<Resource<List<Penginapan>>>
 
-    fun getNearbyWisata(lat: String, long: String): LiveData<Resource<List<WisataNearby>>>
+    fun getNearbyWisata(lat: String, long: String): LiveData<Resource<List<Wisata>>>
 
-    fun getNearbyTravel(lat: String, long: String): LiveData<Resource<List<TravelNearby>>>
+    fun getNearbyTravel(lat: String, long: String): LiveData<Resource<List<Travel>>>
 
-    fun getNearbySpbu(lat: String, long: String): LiveData<Resource<List<SpbuNearby>>>
+    fun getNearbySpbu(lat: String, long: String): LiveData<Resource<List<Spbu>>>
 
-    fun getNearbyPenginapan(lat: String, long: String): LiveData<Resource<List<PenginapanNearby>>>
+    fun getNearbyPenginapan(lat: String, long: String): LiveData<Resource<List<Penginapan>>>
 
-    fun getNearbyMasjid(lat: String, long: String): LiveData<Resource<List<MasjidNearby>>>
+    fun getNearbyMasjid(lat: String, long: String): LiveData<Resource<List<Masjid>>>
 
-    fun getNearbyEvent(lat: String, long: String): LiveData<Resource<List<EventNearby>>>
+    fun getNearbyEvent(lat: String, long: String): LiveData<Resource<List<Event>>>
 
-    fun getNearbyAtm(lat: String, long: String): LiveData<Resource<List<AtmNearby>>>
+    fun getNearbyAtm(lat: String, long: String): LiveData<Resource<List<Atm>>>
 }

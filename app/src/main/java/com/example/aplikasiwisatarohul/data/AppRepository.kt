@@ -145,13 +145,13 @@ class AppRepository private constructor(
     override fun getNearbyWisata(
         lat: String,
         long: String
-    ): LiveData<Resource<List<WisataNearby>>> {
-        return object : NetworkOnlyResource<List<WisataNearby>, List<WisataNearby>>(appExecutors) {
-            override fun handleCallResult(item: List<WisataNearby>?): List<WisataNearby>? {
+    ): LiveData<Resource<List<Wisata>>> {
+        return object : NetworkOnlyResource<List<Wisata>, List<Wisata>>(appExecutors) {
+            override fun handleCallResult(item: List<Wisata>?): List<Wisata>? {
                 return item
             }
 
-            override fun createCall(): LiveData<ApiResponse<List<WisataNearby>>> {
+            override fun createCall(): LiveData<ApiResponse<List<Wisata>>> {
                 return remoteDataSource.getNearbyWisata(lat, long)
             }
 
@@ -161,26 +161,26 @@ class AppRepository private constructor(
     override fun getNearbyTravel(
         lat: String,
         long: String
-    ): LiveData<Resource<List<TravelNearby>>> {
-        return object : NetworkOnlyResource<List<TravelNearby>, List<TravelNearby>>(appExecutors) {
-            override fun handleCallResult(item: List<TravelNearby>?): List<TravelNearby>? {
+    ): LiveData<Resource<List<Travel>>> {
+        return object : NetworkOnlyResource<List<Travel>, List<Travel>>(appExecutors) {
+            override fun handleCallResult(item: List<Travel>?): List<Travel>? {
                 return item
             }
 
-            override fun createCall(): LiveData<ApiResponse<List<TravelNearby>>> {
+            override fun createCall(): LiveData<ApiResponse<List<Travel>>> {
                 return remoteDataSource.getNearbyTravel(lat, long)
             }
 
         }.asLiveData()
     }
 
-    override fun getNearbySpbu(lat: String, long: String): LiveData<Resource<List<SpbuNearby>>> {
-        return object : NetworkOnlyResource<List<SpbuNearby>, List<SpbuNearby>>(appExecutors) {
-            override fun handleCallResult(item: List<SpbuNearby>?): List<SpbuNearby>? {
+    override fun getNearbySpbu(lat: String, long: String): LiveData<Resource<List<Spbu>>> {
+        return object : NetworkOnlyResource<List<Spbu>, List<Spbu>>(appExecutors) {
+            override fun handleCallResult(item: List<Spbu>?): List<Spbu>? {
                 return item
             }
 
-            override fun createCall(): LiveData<ApiResponse<List<SpbuNearby>>> {
+            override fun createCall(): LiveData<ApiResponse<List<Spbu>>> {
                 return remoteDataSource.getNearbySpbu(lat, long)
             }
 
@@ -190,14 +190,14 @@ class AppRepository private constructor(
     override fun getNearbyPenginapan(
         lat: String,
         long: String
-    ): LiveData<Resource<List<PenginapanNearby>>> {
+    ): LiveData<Resource<List<Penginapan>>> {
         return object :
-            NetworkOnlyResource<List<PenginapanNearby>, List<PenginapanNearby>>(appExecutors) {
-            override fun handleCallResult(item: List<PenginapanNearby>?): List<PenginapanNearby>? {
+            NetworkOnlyResource<List<Penginapan>, List<Penginapan>>(appExecutors) {
+            override fun handleCallResult(item: List<Penginapan>?): List<Penginapan>? {
                 return item
             }
 
-            override fun createCall(): LiveData<ApiResponse<List<PenginapanNearby>>> {
+            override fun createCall(): LiveData<ApiResponse<List<Penginapan>>> {
                 return remoteDataSource.getNearbyPenginapan(lat, long)
             }
 
@@ -207,39 +207,39 @@ class AppRepository private constructor(
     override fun getNearbyMasjid(
         lat: String,
         long: String
-    ): LiveData<Resource<List<MasjidNearby>>> {
-        return object : NetworkOnlyResource<List<MasjidNearby>, List<MasjidNearby>>(appExecutors) {
-            override fun handleCallResult(item: List<MasjidNearby>?): List<MasjidNearby>? {
+    ): LiveData<Resource<List<Masjid>>> {
+        return object : NetworkOnlyResource<List<Masjid>, List<Masjid>>(appExecutors) {
+            override fun handleCallResult(item: List<Masjid>?): List<Masjid>? {
                 return item
             }
 
-            override fun createCall(): LiveData<ApiResponse<List<MasjidNearby>>> {
+            override fun createCall(): LiveData<ApiResponse<List<Masjid>>> {
                 return remoteDataSource.getNearbyMasjid(lat, long)
             }
 
         }.asLiveData()
     }
 
-    override fun getNearbyEvent(lat: String, long: String): LiveData<Resource<List<EventNearby>>> {
-        return object : NetworkOnlyResource<List<EventNearby>, List<EventNearby>>(appExecutors) {
-            override fun handleCallResult(item: List<EventNearby>?): List<EventNearby>? {
+    override fun getNearbyEvent(lat: String, long: String): LiveData<Resource<List<Event>>> {
+        return object : NetworkOnlyResource<List<Event>, List<Event>>(appExecutors) {
+            override fun handleCallResult(item: List<Event>?): List<Event>? {
                 return item
             }
 
-            override fun createCall(): LiveData<ApiResponse<List<EventNearby>>> {
+            override fun createCall(): LiveData<ApiResponse<List<Event>>> {
                 return remoteDataSource.getNearbyEvent(lat, long)
             }
 
         }.asLiveData()
     }
 
-    override fun getNearbyAtm(lat: String, long: String): LiveData<Resource<List<AtmNearby>>> {
-        return object : NetworkOnlyResource<List<AtmNearby>, List<AtmNearby>>(appExecutors) {
-            override fun handleCallResult(item: List<AtmNearby>?): List<AtmNearby>? {
+    override fun getNearbyAtm(lat: String, long: String): LiveData<Resource<List<Atm>>> {
+        return object : NetworkOnlyResource<List<Atm>, List<Atm>>(appExecutors) {
+            override fun handleCallResult(item: List<Atm>?): List<Atm>? {
                 return item
             }
 
-            override fun createCall(): LiveData<ApiResponse<List<AtmNearby>>> {
+            override fun createCall(): LiveData<ApiResponse<List<Atm>>> {
                 return remoteDataSource.getNearbyAtm(lat, long)
             }
 

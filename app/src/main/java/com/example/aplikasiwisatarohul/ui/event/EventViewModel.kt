@@ -4,8 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.example.aplikasiwisatarohul.data.AppRepository
 import com.example.aplikasiwisatarohul.data.source.remote.response.Event
-import com.example.aplikasiwisatarohul.data.source.remote.response.EventNearby
-import com.example.aplikasiwisatarohul.data.source.remote.response.MasjidNearby
 import com.example.aplikasiwisatarohul.vo.Resource
 
 class EventViewModel(private val appRepository: AppRepository) : ViewModel() {
@@ -16,6 +14,6 @@ class EventViewModel(private val appRepository: AppRepository) : ViewModel() {
     fun getNearbyEvent(
         lat: String,
         long: String
-    ): LiveData<Resource<List<EventNearby>>> =
+    ): LiveData<Resource<List<Event>>> =
         appRepository.getNearbyEvent(lat, long)
 }
