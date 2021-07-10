@@ -236,6 +236,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 Status.SUCCESS -> {
                     if (atm.data != null) {
                         for (i in atm.data.indices) {
+                            Timber.d("sitance ${atm.data[i].distance}")
                             val latLng = LatLng(
                                 atm.data[i].latitude.toDouble(),
                                 atm.data[i].longitude.toDouble()

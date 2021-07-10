@@ -13,8 +13,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:background="@color/blue_200">
+            android:layout_height="120dp">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -75,10 +74,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/spacing_middle"
+                    android:layout_marginTop="8dp"
                     android:layout_marginRight="@dimen/spacing_middle"
                     android:layout_marginBottom="@dimen/spacing_medium"
                     android:visibility="visible"
-                    android:layout_marginTop="8dp"
                     app:cardCornerRadius="4dp"
                     app:cardElevation="2dp">
 
@@ -113,18 +112,32 @@
                                 android:gravity="center"
                                 android:orientation="vertical">
 
-                                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                                    android:id="@+id/fb_wisata_sejarah"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:clickable="true"
-                                    android:focusable="true"
-                                    android:tint="@android:color/white"
-                                    app:backgroundTint="@color/light_green_500"
-                                    app:elevation="0dp"
-                                    app:fabSize="mini"
-                                    app:rippleColor="@android:color/white"
-                                    app:srcCompat="@drawable/ic_sejarah" />
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/cv_sejarah"
+                                    android:layout_width="59dp"
+                                    android:layout_height="59dp"
+                                    app:cardCornerRadius="10dp">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:id="@+id/iv_sejarah"
+                                        android:layout_width="38dp"
+                                        android:layout_height="40dp"
+                                        android:layout_gravity="center"
+                                        android:background="@drawable/ic_sejarah" />
+                                </androidx.cardview.widget.CardView>
+
+                                <!--                                <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+                                <!--                                    android:id="@+id/fb_wisata_sejarah"-->
+                                <!--                                    android:layout_width="wrap_content"-->
+                                <!--                                    android:layout_height="wrap_content"-->
+                                <!--                                    android:clickable="true"-->
+                                <!--                                    android:focusable="true"-->
+                                <!--                                    android:tint="@android:color/white"-->
+                                <!--                                    app:backgroundTint="@color/light_green_500"-->
+                                <!--                                    app:elevation="0dp"-->
+                                <!--                                    app:fabSize="mini"-->
+                                <!--                                    app:rippleColor="@android:color/white"-->
+                                <!--                                    app:srcCompat="@drawable/ic_sejarah" />-->
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -144,18 +157,32 @@
                                 android:gravity="center"
                                 android:orientation="vertical">
 
-                                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                                    android:id="@+id/fb_wisata_kuliner"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:clickable="true"
-                                    android:focusable="true"
-                                    android:tint="@android:color/white"
-                                    app:backgroundTint="@color/yellow_600"
-                                    app:elevation="0dp"
-                                    app:fabSize="mini"
-                                    app:rippleColor="@android:color/white"
-                                    app:srcCompat="@drawable/ic_kuliner" />
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/cv_kuliner"
+                                    android:layout_width="59dp"
+                                    android:layout_height="59dp"
+                                    app:cardCornerRadius="10dp">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:id="@+id/iv_kuliner"
+                                        android:layout_width="38dp"
+                                        android:layout_height="40dp"
+                                        android:layout_gravity="center"
+                                        android:background="@drawable/ic_kuliner_2" />
+                                </androidx.cardview.widget.CardView>
+
+                                <!--                                <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+                                <!--                                    android:id="@+id/fb_wisata_kuliner"-->
+                                <!--                                    android:layout_width="wrap_content"-->
+                                <!--                                    android:layout_height="wrap_content"-->
+                                <!--                                    android:clickable="true"-->
+                                <!--                                    android:focusable="true"-->
+                                <!--                                    android:tint="@android:color/white"-->
+                                <!--                                    app:backgroundTint="@color/yellow_600"-->
+                                <!--                                    app:elevation="0dp"-->
+                                <!--                                    app:fabSize="mini"-->
+                                <!--                                    app:rippleColor="@android:color/white"-->
+                                <!--                                    app:srcCompat="@drawable/ic_kuliner" />-->
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -174,18 +201,32 @@
                                 android:gravity="center"
                                 android:orientation="vertical">
 
-                                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                                    android:id="@+id/fb_wisata_buatan"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:clickable="true"
-                                    android:focusable="true"
-                                    android:tint="@android:color/white"
-                                    app:backgroundTint="@color/purple_400"
-                                    app:elevation="0dp"
-                                    app:fabSize="mini"
-                                    app:rippleColor="@android:color/white"
-                                    app:srcCompat="@drawable/ic_buatan" />
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/cv_buatan"
+                                    android:layout_width="59dp"
+                                    android:layout_height="59dp"
+                                    app:cardCornerRadius="10dp">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:id="@+id/iv_buatan"
+                                        android:layout_width="38dp"
+                                        android:layout_height="40dp"
+                                        android:layout_gravity="center"
+                                        android:background="@drawable/ic_buatan" />
+                                </androidx.cardview.widget.CardView>
+
+                                <!--                                <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+                                <!--                                    android:id="@+id/fb_wisata_buatan"-->
+                                <!--                                    android:layout_width="wrap_content"-->
+                                <!--                                    android:layout_height="wrap_content"-->
+                                <!--                                    android:clickable="true"-->
+                                <!--                                    android:focusable="true"-->
+                                <!--                                    android:tint="@android:color/white"-->
+                                <!--                                    app:backgroundTint="@color/purple_400"-->
+                                <!--                                    app:elevation="0dp"-->
+                                <!--                                    app:fabSize="mini"-->
+                                <!--                                    app:rippleColor="@android:color/white"-->
+                                <!--                                    app:srcCompat="@drawable/ic_buatan" />-->
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -216,18 +257,32 @@
                                 android:gravity="center"
                                 android:orientation="vertical">
 
-                                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                                    android:id="@+id/fb_wisata_alam"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:clickable="true"
-                                    android:focusable="true"
-                                    android:tint="@android:color/white"
-                                    app:backgroundTint="@color/indigo_300"
-                                    app:elevation="0dp"
-                                    app:fabSize="mini"
-                                    app:rippleColor="@android:color/white"
-                                    app:srcCompat="@drawable/ic_alam" />
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/cv_alam"
+                                    android:layout_width="59dp"
+                                    android:layout_height="59dp"
+                                    app:cardCornerRadius="10dp">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:id="@+id/iv_alam"
+                                        android:layout_width="38dp"
+                                        android:layout_height="40dp"
+                                        android:layout_gravity="center"
+                                        android:background="@drawable/ic_alam" />
+                                </androidx.cardview.widget.CardView>
+
+                                <!--                                <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+                                <!--                                    android:id="@+id/fb_wisata_alam"-->
+                                <!--                                    android:layout_width="wrap_content"-->
+                                <!--                                    android:layout_height="wrap_content"-->
+                                <!--                                    android:clickable="true"-->
+                                <!--                                    android:focusable="true"-->
+                                <!--                                    android:tint="@android:color/white"-->
+                                <!--                                    app:backgroundTint="@color/indigo_300"-->
+                                <!--                                    app:elevation="0dp"-->
+                                <!--                                    app:fabSize="mini"-->
+                                <!--                                    app:rippleColor="@android:color/white"-->
+                                <!--                                    app:srcCompat="@drawable/ic_alam" />-->
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -247,18 +302,32 @@
                                 android:gravity="center"
                                 android:orientation="vertical">
 
-                                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                                    android:id="@+id/fb_wisata_religi"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:clickable="true"
-                                    android:focusable="true"
-                                    android:tint="@android:color/white"
-                                    app:backgroundTint="@color/green_500"
-                                    app:elevation="0dp"
-                                    app:fabSize="mini"
-                                    app:rippleColor="@android:color/white"
-                                    app:srcCompat="@drawable/ic_religi" />
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/cv_religi"
+                                    android:layout_width="59dp"
+                                    android:layout_height="59dp"
+                                    app:cardCornerRadius="10dp">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:id="@+id/iv_religi"
+                                        android:layout_width="38dp"
+                                        android:layout_height="40dp"
+                                        android:layout_gravity="center"
+                                        android:background="@drawable/ic_religi" />
+                                </androidx.cardview.widget.CardView>
+
+                                <!--                                <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+                                <!--                                    android:id="@+id/fb_wisata_religi"-->
+                                <!--                                    android:layout_width="wrap_content"-->
+                                <!--                                    android:layout_height="wrap_content"-->
+                                <!--                                    android:clickable="true"-->
+                                <!--                                    android:focusable="true"-->
+                                <!--                                    android:tint="@android:color/white"-->
+                                <!--                                    app:backgroundTint="@color/green_500"-->
+                                <!--                                    app:elevation="0dp"-->
+                                <!--                                    app:fabSize="mini"-->
+                                <!--                                    app:rippleColor="@android:color/white"-->
+                                <!--                                    app:srcCompat="@drawable/ic_religi" />-->
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -277,18 +346,32 @@
                                 android:gravity="center"
                                 android:orientation="vertical">
 
-                                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                                    android:id="@+id/fb_wisata_budaya"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:clickable="true"
-                                    android:focusable="true"
-                                    android:tint="@android:color/white"
-                                    app:backgroundTint="@color/light_green_400"
-                                    app:elevation="0dp"
-                                    app:fabSize="mini"
-                                    app:rippleColor="@android:color/white"
-                                    app:srcCompat="@drawable/ic_budaya" />
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/cv_budaya"
+                                    android:layout_width="59dp"
+                                    android:layout_height="59dp"
+                                    app:cardCornerRadius="10dp">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:id="@+id/iv_budaya"
+                                        android:layout_width="38dp"
+                                        android:layout_height="40dp"
+                                        android:layout_gravity="center"
+                                        android:background="@drawable/ic_budaya" />
+                                </androidx.cardview.widget.CardView>
+
+                                <!--                                <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+                                <!--                                    android:id="@+id/fb_wisata_budaya"-->
+                                <!--                                    android:layout_width="wrap_content"-->
+                                <!--                                    android:layout_height="wrap_content"-->
+                                <!--                                    android:clickable="true"-->
+                                <!--                                    android:focusable="true"-->
+                                <!--                                    android:tint="@android:color/white"-->
+                                <!--                                    app:backgroundTint="@color/light_green_400"-->
+                                <!--                                    app:elevation="0dp"-->
+                                <!--                                    app:fabSize="mini"-->
+                                <!--                                    app:rippleColor="@android:color/white"-->
+                                <!--                                    app:srcCompat="@drawable/ic_budaya" />-->
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -327,8 +410,8 @@
                         android:id="@+id/tv_maps"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Perbesar Peta"
                         android:layout_alignParentEnd="true"
+                        android:text="Perbesar Peta"
                         android:textColor="@color/blue_500"
                         android:textStyle="bold" />
 
@@ -343,7 +426,7 @@
                         android:id="@+id/map"
                         android:name="com.google.android.gms.maps.SupportMapFragment"
                         android:layout_width="match_parent"
-                        android:layout_height="200dp"/>
+                        android:layout_height="200dp" />
                 </LinearLayout>
 
             </LinearLayout>

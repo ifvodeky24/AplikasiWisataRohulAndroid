@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -32,7 +31,8 @@ import com.example.aplikasiwisatarohul.ui.spbu.DetailSpbuActivity
 import com.example.aplikasiwisatarohul.ui.spbu.SpbuViewModel
 import com.example.aplikasiwisatarohul.ui.travel.DetailTravelActivity
 import com.example.aplikasiwisatarohul.ui.travel.TravelViewModel
-import com.example.aplikasiwisatarohul.ui.wisata.*
+import com.example.aplikasiwisatarohul.ui.wisata.WisataActivity
+import com.example.aplikasiwisatarohul.ui.wisata.WisataViewModel
 import com.example.aplikasiwisatarohul.vo.Status
 import com.example.aplikasiwisatarohul.vo.ViewModelFactory
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -104,37 +104,37 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding?.fbWisataSejarah?.setOnClickListener {
+        binding?.cvSejarah?.setOnClickListener {
             val intent = Intent(activity, WisataActivity::class.java)
             intent.putExtra(WisataActivity.NAME, "sejarah")
             startActivity(intent)
         }
 
-        binding?.fbWisataKuliner?.setOnClickListener {
+        binding?.cvKuliner?.setOnClickListener {
             val intent = Intent(activity, WisataActivity::class.java)
             intent.putExtra(WisataActivity.NAME, "kuliner")
             startActivity(intent)
         }
 
-        binding?.fbWisataBuatan?.setOnClickListener {
+        binding?.cvBuatan?.setOnClickListener {
             val intent = Intent(activity, WisataActivity::class.java)
             intent.putExtra(WisataActivity.NAME, "buatan")
             startActivity(intent)
         }
 
-        binding?.fbWisataAlam?.setOnClickListener {
+        binding?.cvAlam?.setOnClickListener {
             val intent = Intent(activity, WisataActivity::class.java)
             intent.putExtra(WisataActivity.NAME, "alam")
             startActivity(intent)
         }
 
-        binding?.fbWisataReligi?.setOnClickListener {
+        binding?.cvReligi?.setOnClickListener {
             val intent = Intent(activity, WisataActivity::class.java)
             intent.putExtra(WisataActivity.NAME, "religi")
             startActivity(intent)
         }
 
-        binding?.fbWisataBudaya?.setOnClickListener {
+        binding?.cvBudaya?.setOnClickListener {
             val intent = Intent(activity, WisataActivity::class.java)
             intent.putExtra(WisataActivity.NAME, "budaya")
             startActivity(intent)
@@ -570,7 +570,10 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
 
                     val moveWithObjectIntent =
                         Intent(activity, DetailPenginapanActivity::class.java)
-                    moveWithObjectIntent.putExtra(DetailPenginapanActivity.DATA, penginapanListing[0])
+                    moveWithObjectIntent.putExtra(
+                        DetailPenginapanActivity.DATA,
+                        penginapanListing[0]
+                    )
                     startActivity(moveWithObjectIntent)
                 }
                 "travel" -> {
