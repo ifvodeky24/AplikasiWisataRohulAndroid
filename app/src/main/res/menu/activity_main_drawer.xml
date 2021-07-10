@@ -18,12 +18,12 @@
             android:title="@string/travel" />
         <item
             android:id="@+id/nav_event"
-            android:icon="@drawable/ic_event"
+            android:icon="@drawable/ic_event_new"
             android:title="@string/event" />
 
         <item
             android:id="@+id/nav_masjid"
-            android:icon="@drawable/ic_masjid"
+            android:icon="@drawable/ic_masjid_new"
             android:title="@string/masjid" />
 
         <item
@@ -38,7 +38,7 @@
 
         <item
             android:id="@+id/nav_berita"
-            android:icon="@drawable/ic_berita"
+            android:icon="@drawable/ic_berita_new"
             android:title="@string/berita" />
     </group>
 </menu>

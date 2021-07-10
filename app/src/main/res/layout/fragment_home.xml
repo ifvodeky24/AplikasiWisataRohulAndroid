@@ -123,7 +123,7 @@
                                         android:layout_width="38dp"
                                         android:layout_height="40dp"
                                         android:layout_gravity="center"
-                                        android:background="@drawable/ic_sejarah" />
+                                        android:background="@drawable/ic_sejarah_new" />
                                 </androidx.cardview.widget.CardView>
 
                                 <!--                                <com.google.android.material.floatingactionbutton.FloatingActionButton-->
@@ -168,7 +168,7 @@
                                         android:layout_width="38dp"
                                         android:layout_height="40dp"
                                         android:layout_gravity="center"
-                                        android:background="@drawable/ic_kuliner_2" />
+                                        android:background="@drawable/ic_kuliner_new" />
                                 </androidx.cardview.widget.CardView>
 
                                 <!--                                <com.google.android.material.floatingactionbutton.FloatingActionButton-->
@@ -212,7 +212,7 @@
                                         android:layout_width="38dp"
                                         android:layout_height="40dp"
                                         android:layout_gravity="center"
-                                        android:background="@drawable/ic_buatan" />
+                                        android:background="@drawable/ic_buatan_new" />
                                 </androidx.cardview.widget.CardView>
 
                                 <!--                                <com.google.android.material.floatingactionbutton.FloatingActionButton-->
@@ -268,7 +268,7 @@
                                         android:layout_width="38dp"
                                         android:layout_height="40dp"
                                         android:layout_gravity="center"
-                                        android:background="@drawable/ic_alam" />
+                                        android:background="@drawable/ic_alam_new" />
                                 </androidx.cardview.widget.CardView>
 
                                 <!--                                <com.google.android.material.floatingactionbutton.FloatingActionButton-->
@@ -313,7 +313,7 @@
                                         android:layout_width="38dp"
                                         android:layout_height="40dp"
                                         android:layout_gravity="center"
-                                        android:background="@drawable/ic_religi" />
+                                        android:background="@drawable/ic_religi_new" />
                                 </androidx.cardview.widget.CardView>
 
                                 <!--                                <com.google.android.material.floatingactionbutton.FloatingActionButton-->
@@ -357,7 +357,7 @@
                                         android:layout_width="38dp"
                                         android:layout_height="40dp"
                                         android:layout_gravity="center"
-                                        android:background="@drawable/ic_budaya" />
+                                        android:background="@drawable/ic_budaya_new" />
                                 </androidx.cardview.widget.CardView>
 
                                 <!--                                <com.google.android.material.floatingactionbutton.FloatingActionButton-->
